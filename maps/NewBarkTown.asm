@@ -283,22 +283,22 @@ NewBarkTown_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  3, ELMS_LAB, 1
-	warp_event 13,  5, PLAYERS_HOUSE_1F, 1
-	warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	warp_event 11, 13, ELMS_HOUSE, 1
+	warp_event  2,  3, ELMS_LAB, 1
+	warp_event  7,  3, PLAYERS_HOUSE_1F, 1
+	warp_event  1,  9, PLAYERS_NEIGHBORS_HOUSE, 1
+	warp_event 11,  7, ELMS_HOUSE, 1
 
 	def_coord_events
-	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
-	coord_event  1,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
+	coord_event 15,  4, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
+	coord_event 15,  5, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
 
 	def_bg_events
-	bg_event  8,  8, BGEVENT_READ, NewBarkTownSign
-	bg_event 11,  5, BGEVENT_READ, NewBarkTownPlayersHouseSign
-	bg_event  3,  3, BGEVENT_READ, NewBarkTownElmsLabSign
-	bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
+	bg_event  8,  6, BGEVENT_READ, NewBarkTownSign
+	bg_event  8,  4, BGEVENT_READ, NewBarkTownPlayersHouseSign
+	bg_event  4,  4, BGEVENT_READ, NewBarkTownElmsLabSign
+	bg_event  3,  7, BGEVENT_READ, NewBarkTownElmsHouseSign
 
 	def_object_events
-	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
-	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
-	object_event  3,  2, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownSilverScript, EVENT_RIVAL_NEW_BARK_TOWN
+	object_event  5,  7, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
+	object_event  7,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
+	object_event  1,  4, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownSilverScript, EVENT_RIVAL_NEW_BARK_TOWN
