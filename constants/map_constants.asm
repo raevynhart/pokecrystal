@@ -49,7 +49,7 @@ ENDM
 	map_const ROUTE_39_FARMHOUSE,                           4,  4 ; 11
 	map_const ROUTE_38,                                    20,  9 ; 12
 	map_const ROUTE_39,                                    10, 18 ; 13
-	map_const OLIVINE_CITY,                                20, 18 ; 14
+	map_const OLIVINE_CITY,                                20, 14 ; 14
 	endgroup
 
 	newgroup MAHOGANY                                             ;  2
@@ -59,7 +59,7 @@ ENDM
 	map_const ROUTE_42_ECRUTEAK_GATE,                       5,  4 ;  4
 	map_const ROUTE_42,                                    30,  9 ;  5
 	map_const ROUTE_44,                                    30,  9 ;  6
-	map_const MAHOGANY_TOWN,                               10,  9 ;  7
+	map_const MAHOGANY_TOWN,                               10,  8 ;  7
 	endgroup
 
 	newgroup DUNGEONS                                             ;  3
@@ -165,7 +165,7 @@ ENDM
 	map_const ECRUTEAK_MART,                                6,  4 ;  6
 	map_const ECRUTEAK_GYM,                                 5,  9 ;  7
 	map_const ECRUTEAK_ITEMFINDER_HOUSE,                    4,  4 ;  8
-	map_const ECRUTEAK_CITY,                               20, 18 ;  9
+	map_const ECRUTEAK_CITY,                               7, 6 ;  9
 	endgroup
 
 	newgroup BLACKTHORN                                           ;  5
@@ -178,7 +178,7 @@ ENDM
 	map_const MOVE_DELETERS_HOUSE,                          4,  4 ;  7
 	map_const ROUTE_45,                                    10, 45 ;  8
 	map_const ROUTE_46,                                    10, 18 ;  9
-	map_const BLACKTHORN_CITY,                             20, 18 ; 10
+	map_const BLACKTHORN_CITY,                             13, 7 ; 10
 	endgroup
 
 	newgroup CINNABAR                                             ;  6
@@ -219,7 +219,7 @@ ENDM
 	map_const KURTS_HOUSE,                                  8,  4 ;  4
 	map_const AZALEA_GYM,                                   5,  8 ;  5
 	map_const ROUTE_33,                                    10,  9 ;  6
-	map_const AZALEA_TOWN,                                 20,  9 ;  7
+	map_const AZALEA_TOWN,                                 14,  10 ;  7
 	endgroup
 
 	newgroup LAKE_OF_RAGE                                         ;  9
@@ -236,7 +236,7 @@ ENDM
 	map_const ROUTE_35,                                    10, 18 ;  2
 	map_const ROUTE_36,                                    30,  9 ;  3
 	map_const ROUTE_37,                                    10,  9 ;  4
-	map_const VIOLET_CITY,                                 20, 18 ;  5
+	map_const VIOLET_CITY,                                 8, 7 ;  5
 	map_const VIOLET_MART,                                  6,  4 ;  6
 	map_const VIOLET_GYM,                                   5,  8 ;  7
 	map_const EARLS_POKEMON_ACADEMY,                        4,  8 ;  8
@@ -253,7 +253,7 @@ ENDM
 
 	newgroup GOLDENROD                                            ; 11
 	map_const ROUTE_34,                                    10, 27 ;  1
-	map_const GOLDENROD_CITY,                              20, 18 ;  2
+	map_const GOLDENROD_CITY,                              12, 8 ;  2
 	map_const GOLDENROD_GYM,                               10,  9 ;  3
 	map_const GOLDENROD_BIKE_SHOP,                          4,  4 ;  4
 	map_const GOLDENROD_HAPPINESS_RATER,                    4,  4 ;  5
@@ -421,7 +421,7 @@ ENDM
 	newgroup CIANWOOD                                             ; 22
 	map_const ROUTE_40,                                    10, 18 ;  1
 	map_const ROUTE_41,                                    25, 27 ;  2
-	map_const CIANWOOD_CITY,                               15, 27 ;  3
+	map_const CIANWOOD_CITY,                               9, 10 ;  3
 	map_const MANIAS_HOUSE,                                 4,  4 ;  4
 	map_const CIANWOOD_GYM,                                 5,  9 ;  5
 	map_const CIANWOOD_POKECENTER_1F,                       5,  4 ;  6
@@ -457,7 +457,7 @@ ENDM
 	map_const ROUTE_26,                                    10, 54 ;  1
 	map_const ROUTE_27,                                    40,  9 ;  2
 	map_const ROUTE_29,                                    30,  9 ;  3
-	map_const NEW_BARK_TOWN,                               10,  9 ;  4
+	map_const NEW_BARK_TOWN,                               8,  7 ;  4
 	map_const ELMS_LAB,                                     5,  6 ;  5
 	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  6
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  7
@@ -490,7 +490,7 @@ ENDM
 	newgroup CHERRYGROVE                                          ; 26
 	map_const ROUTE_30,                                    10, 27 ;  1
 	map_const ROUTE_31,                                    20,  9 ;  2
-	map_const CHERRYGROVE_CITY,                            20,  9 ;  3
+	map_const CHERRYGROVE_CITY,                            16,  11 ;  3
 	map_const CHERRYGROVE_MART,                             6,  4 ;  4
 	map_const CHERRYGROVE_POKECENTER_1F,                    5,  4 ;  5
 	map_const CHERRYGROVE_GYM_SPEECH_HOUSE,                 4,  4 ;  6
