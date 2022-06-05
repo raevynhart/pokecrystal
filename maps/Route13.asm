@@ -1,210 +1,365 @@
 	object_const_def
-	const ROUTE13_YOUNGSTER1
-	const ROUTE13_YOUNGSTER2
-	const ROUTE13_POKEFAN_M1
-	const ROUTE13_POKEFAN_M2
-	const ROUTE13_POKEFAN_M3
+	const ROUTE41_OLIVINE_RIVAL1
+	const ROUTE41_OLIVINE_RIVAL2
+	const ROUTE41_OLIVINE_RIVAL3
+	const ROUTE41_OLIVINE_RIVAL4
+	const ROUTE41_OLIVINE_RIVAL5
+	const ROUTE41_SWIMMER_GIRL1
+	const ROUTE41_SWIMMER_GIRL2
+	const ROUTE41_SWIMMER_GIRL3
+	const ROUTE41_SWIMMER_GIRL4
+	const ROUTE41_SWIMMER_GIRL5
 
-Route13_MapScripts:
+Route41_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-TrainerPokefanmAlex:
-	trainer POKEFANM, ALEX, EVENT_BEAT_POKEFANM_ALEX, PokefanmAlexSeenText, PokefanmAlexBeatenText, 0, .Script
+TrainerSwimmerfKaylee:
+	trainer SWIMMERF, KAYLEE, EVENT_BEAT_SWIMMERF_KAYLEE, SwimmerfKayleeSeenText, SwimmerfKayleeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmAlexAfterBattleText
+	writetext SwimmerfKayleeAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerPokefanmJoshua:
-	trainer POKEFANM, JOSHUA, EVENT_BEAT_POKEFANM_JOSHUA, PokefanmJoshuaSeenText, PokefanmJoshuaBeatenText, 0, .Script
+TrainerSwimmerfSusie:
+	trainer SWIMMERF, SUSIE, EVENT_BEAT_SWIMMERF_SUSIE, SwimmerfSusieSeenText, SwimmerfSusieBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmJoshuaAfterBattleText
+	writetext SwimmerfSusieAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBirdKeeperPerry:
-	trainer BIRD_KEEPER, PERRY, EVENT_BEAT_BIRD_KEEPER_PERRY, BirdKeeperPerrySeenText, BirdKeeperPerryBeatenText, 0, .Script
+TrainerSwimmerfDenise:
+	trainer SWIMMERF, DENISE, EVENT_BEAT_SWIMMERF_DENISE, SwimmerfDeniseSeenText, SwimmerfDeniseBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperPerryAfterBattleText
+	writetext SwimmerfDeniseAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBirdKeeperBret:
-	trainer BIRD_KEEPER, BRET, EVENT_BEAT_BIRD_KEEPER_BRET, BirdKeeperBretSeenText, BirdKeeperBretBeatenText, 0, .Script
+TrainerSwimmerfKara:
+	trainer SWIMMERF, KARA, EVENT_BEAT_SWIMMERF_KARA, SwimmerfKaraSeenText, SwimmerfKaraBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdKeeperBretAfterBattleText
+	writetext SwimmerfKaraAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerHikerKenny:
-	trainer HIKER, KENNY, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
+TrainerSwimmerfWendy:
+	trainer SWIMMERF, WENDY, EVENT_BEAT_SWIMMERF_WENDY, SwimmerfWendySeenText, SwimmerfWendyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext HikerKennyAfterBattleText
+	writetext SwimmerfWendyAfterBattleText
 	waitbutton
 	closetext
 	end
 
-Route13TrainerTips:
-	jumptext Route13TrainerTipsText
+TrainerSwimmermCharlie:
+	trainer SWIMMERM, CHARLIE, EVENT_BEAT_SWIMMERM_CHARLIE, SwimmermCharlieSeenText, SwimmermCharlieBeatenText, 0, .Script
 
-Route13Sign:
-	jumptext Route13SignText
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermCharlieAfterBattleText
+	waitbutton
+	closetext
+	end
 
-Route13DirectionsSign:
-	jumptext Route13DirectionsSignText
+TrainerSwimmermGeorge:
+	trainer SWIMMERM, GEORGE, EVENT_BEAT_SWIMMERM_GEORGE, SwimmermGeorgeSeenText, SwimmermGeorgeBeatenText, 0, .Script
 
-Route13HiddenCalcium:
-	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermGeorgeAfterBattleText
+	waitbutton
+	closetext
+	end
 
-PokefanmAlexSeenText:
-	text "Bow down before my"
-	line "regal #MON!"
+TrainerSwimmermBerke:
+	trainer SWIMMERM, BERKE, EVENT_BEAT_SWIMMERM_BERKE, SwimmermBerkeSeenText, SwimmermBerkeBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermBerkeAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerSwimmermKirk:
+	trainer SWIMMERM, KIRK, EVENT_BEAT_SWIMMERM_KIRK, SwimmermKirkSeenText, SwimmermKirkBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermKirkAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerSwimmermMathew:
+	trainer SWIMMERM, MATHEW, EVENT_BEAT_SWIMMERM_MATHEW, SwimmermMathewSeenText, SwimmermMathewBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermMathewAfterBattleText
+	waitbutton
+	closetext
+	end
+
+Route41Rock: ; unreferenced
+	jumpstd SmashRockScript
+
+Route41HiddenMaxEther:
+	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER
+
+SwimmermCharlieSeenText:
+	text "The water's warm"
+	line "here. I'm loose"
+	cont "and limber."
+
+	para "Sure, I'll take"
+	line "you on!"
 	done
 
-PokefanmAlexBeatenText:
-	text "How… How dare you"
-	line "mock royalty!"
+SwimmermCharlieBeatenText:
+	text "Yikes! I've got"
+	line "prune skin!"
 	done
 
-PokefanmAlexAfterBattleText:
-	text "Doesn't everyone"
-	line "wish to someday be"
-	cont "a king?"
+SwimmermCharlieAfterBattleText:
+	text "Isn't it relaxing"
+	line "just floating like"
+	cont "this?"
 	done
 
-PokefanmJoshuaSeenText:
-	text "Nihihi! Would you"
-	line "like to battle my"
-	cont "PIKACHU gang?"
+SwimmermGeorgeSeenText:
+	text "I'm a bit tired."
+	line "If I win, lend me"
+	cont "your #MON."
 	done
 
-PokefanmJoshuaBeatenText:
-	text "PI-PIKACHU!"
+SwimmermGeorgeBeatenText:
+	text "Pant, pant…"
 	done
 
-PokefanmJoshuaAfterBattleText:
-	text "You look like you"
-	line "have many #MON,"
+SwimmermGeorgeAfterBattleText:
+	text "It's so far to"
+	line "CIANWOOD."
 
-	para "but PIKACHU is"
-	line "still the best."
+	para "But it's no easy"
+	line "return trip to"
+	cont "OLIVINE either."
+
+	para "What should I do?"
 	done
 
-BirdKeeperPerrySeenText:
-	text "Agility is the key"
-	line "attribute of bird"
+SwimmermBerkeSeenText:
+	text "See those islands"
+	line "that are blocked"
+	cont "by whirlpools?"
+
+	para "There just has to"
+	line "be a secret!"
+	done
+
+SwimmermBerkeBeatenText:
+	text "What's the secret"
+	line "to your strength?"
+	done
+
+SwimmermBerkeAfterBattleText:
+	text "It was a dark and"
+	line "stormy night…"
+
+	para "I saw this giant"
+	line "#MON flying"
+	cont "from the islands."
+
+	para "It was scattering"
+	line "feathers from its"
+	cont "silver wings."
+	done
+
+SwimmermKirkSeenText:
+	text "The waves are wild"
+	line "here."
+
+	para "They tire you out"
+	line "while you swim."
+	done
+
+SwimmermKirkBeatenText:
+	text "I'm beat!"
+	done
+
+SwimmermKirkAfterBattleText:
+	text "The currents keep"
+	line "me from reaching"
+	cont "that island."
+	done
+
+SwimmermMathewSeenText:
+	text "Are you seeking"
+	line "the secrets of"
+	cont "WHIRL ISLANDS?"
+	done
+
+SwimmermMathewBeatenText:
+	text "Ooh, you've got"
+	line "great endurance!"
+	done
+
+SwimmermMathewAfterBattleText:
+	text "A secret about"
+	line "WHIRL ISLANDS…"
+
+	para "It's pitch-black"
+	line "inside!"
+	done
+
+SwimmerfKayleeSeenText:
+	text "I'm on my way to"
+	line "WHIRL ISLANDS."
+
+	para "I'm going explor-"
+	line "ing with friends."
+	done
+
+SwimmerfKayleeBeatenText:
+	text "Is that how you do"
+	line "it?"
+	done
+
+SwimmerfKayleeAfterBattleText:
+	text "There's supposed"
+	line "to be a big #-"
+	cont "MON deep beneath"
+	cont "WHIRL ISLANDS."
+
+	para "I wonder what it"
+	line "could be?"
+	done
+
+SwimmerfSusieSeenText:
+	text "You look so ele-"
+	line "gant, riding your"
 	cont "#MON."
 	done
 
-BirdKeeperPerryBeatenText:
-	text "You beat me with"
-	line "your speed…"
+SwimmerfSusieBeatenText:
+	text "I'm crushed…"
 	done
 
-BirdKeeperPerryAfterBattleText:
-	text "Your #MON are"
-	line "remarkably well-"
-	cont "trained."
+SwimmerfSusieAfterBattleText:
+	text "Wasn't there a hit"
+	line "song about a boy"
+	cont "riding a LAPRAS?"
 	done
 
-BirdKeeperBretSeenText:
-	text "Check out my #-"
-	line "MON. Just look at"
-
-	para "their coloring and"
-	line "their plumage."
+SwimmerfDeniseSeenText:
+	text "The weather is so"
+	line "beautiful, I'm in"
+	cont "a daze!"
 	done
 
-BirdKeeperBretBeatenText:
-	text "Shoot!"
-	line "Not good enough!"
+SwimmerfDeniseBeatenText:
+	text "Ohhh!"
 	done
 
-BirdKeeperBretAfterBattleText:
-	text "If you groom them,"
-	line "#MON get happy."
+SwimmerfDeniseAfterBattleText:
+	text "A sunburn is the"
+	line "worst for skin."
+
+	para "But I don't use a"
+	line "sunblock."
+
+	para "I won't pollute"
+	line "the water."
 	done
 
-HikerKennySeenText:
-	text "I should go to"
-	line "ROCK TUNNEL to get"
-	cont "myself an ONIX."
+SwimmerfKaraSeenText:
+	text "If you need to"
+	line "rest, just tread"
+	cont "water."
+
+	para "You'll get your"
+	line "wind back, so you"
+
+	para "can keep on going"
+	line "strong."
 	done
 
-HikerKennyBeatenText:
-	text "I lost…"
+SwimmerfKaraBeatenText:
+	text "Oh! You have more"
+	line "energy than I do."
 	done
 
-HikerKennyAfterBattleText:
-	text "Geological fea-"
-	line "tures don't appear"
-	cont "to change."
-
-	para "But they actually"
-	line "change, little by"
-	cont "little."
+SwimmerfKaraAfterBattleText:
+	text "I heard roars from"
+	line "deep inside the"
+	cont "ISLANDS."
 	done
 
-Route13TrainerTipsText:
-	text "TRAINER TIPS"
-
-	para "Look! Right there,"
-	line "at the left side"
-	cont "of the post."
+SwimmerfWendySeenText:
+	text "At night, STARYU"
+	line "gather near the"
+	cont "water's surface."
 	done
 
-Route13SignText:
-	text "ROUTE 13"
-
-	para "NORTH TO SILENCE"
-	line "BRIDGE"
+SwimmerfWendyBeatenText:
+	text "Oh, dear…"
 	done
 
-Route13DirectionsSignText:
-	text "NORTH TO LAVENDER"
-	line "TOWN"
+SwimmerfWendyAfterBattleText:
+	text "The clusters of"
+	line "STARYU light up"
+	cont "at the same time."
 
-	para "WEST TO FUCHSIA"
-	line "CITY"
+	para "It's so beautiful,"
+	line "it's scary."
 	done
 
-Route13_MapEvents:
+Route41_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  3, 14, WHIRL_ISLAND_NW, 1
+	warp_event 16, 15, WHIRL_ISLAND_NE, 1
+	warp_event -6, 37, WHIRL_ISLAND_SW, 1
+	warp_event  6, 45, WHIRL_ISLAND_SE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 29, 13, BGEVENT_READ, Route13TrainerTips
-	bg_event 41, 11, BGEVENT_READ, Route13Sign
-	bg_event 17, 13, BGEVENT_READ, Route13DirectionsSign
-	bg_event 30, 13, BGEVENT_ITEM, Route13HiddenCalcium
+	bg_event -6, 35, BGEVENT_ITEM, Route41HiddenMaxEther
 
 	def_object_events
-	object_event 42,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperPerry, -1
-	object_event 43,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperBret, -1
-	object_event 32,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJoshua, -1
-	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerHikerKenny, -1
-	object_event 25,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmAlex, -1
+	object_event  2,  6, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCharlie, -1
+	object_event 16,  8, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermGeorge, -1
+	object_event -6, 26, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermBerke, -1
+	object_event  2, 30, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermKirk, -1
+	object_event -6, 46, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermMathew, -1
+	object_event  2,  3, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfKaylee, -1
+	object_event  1, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfSusie, -1
+	object_event -3, 34, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDenise, -1
+	object_event 14, 28, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerSwimmerfKara, -1
+	object_event -6, 50, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerSwimmerfWendy, -1

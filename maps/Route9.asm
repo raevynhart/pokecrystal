@@ -1,224 +1,256 @@
 	object_const_def
-	const ROUTE9_YOUNGSTER1
-	const ROUTE9_LASS1
-	const ROUTE9_YOUNGSTER2
-	const ROUTE9_LASS2
-	const ROUTE9_POKEFAN_M1
-	const ROUTE9_POKEFAN_M2
+	const ROUTE37_WEIRD_TREE1
+	const ROUTE37_WEIRD_TREE2
+	const ROUTE37_YOUNGSTER
+	const ROUTE37_FRUIT_TREE1
+	const ROUTE37_SUNNY
+	const ROUTE37_FRUIT_TREE2
+	const ROUTE37_FRUIT_TREE3
 
-Route9_MapScripts:
+Route37_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .Sunny
 
-TrainerCamperDean:
-	trainer CAMPER, DEAN, EVENT_BEAT_CAMPER_DEAN, CamperDeanSeenText, CamperDeanBeatenText, 0, .Script
+.Sunny:
+	readvar VAR_WEEKDAY
+	ifequal SUNDAY, .SunnyAppears
+	disappear ROUTE37_SUNNY
+	endcallback
 
-.Script:
-	endifjustbattled
-	opentext
-	writetext CamperDeanAfterBattleText
-	waitbutton
-	closetext
-	end
+.SunnyAppears:
+	appear ROUTE37_SUNNY
+	endcallback
 
-TrainerPicnickerHeidi:
-	trainer PICNICKER, HEIDI, EVENT_BEAT_PICNICKER_HEIDI, PicnickerHeidiSeenText, PicnickerHeidiBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext PicnickerHeidiAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerCamperSid:
-	trainer CAMPER, SID, EVENT_BEAT_CAMPER_SID, CamperSidSeenText, CamperSidBeatenText, 0, .Script
+TrainerTwinsAnnandanne1:
+	trainer TWINS, ANNANDANNE1, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne1SeenText, TwinsAnnandanne1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext CamperSidAfterBattleText
+	writetext TwinsAnnandanne1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerPicnickerEdna:
-	trainer PICNICKER, EDNA, EVENT_BEAT_PICNICKER_EDNA, PicnickerEdnaSeenText, PicnickerEdnaBeatenText, 0, .Script
+TrainerTwinsAnnandanne2:
+	trainer TWINS, ANNANDANNE2, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne2SeenText, TwinsAnnandanne2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext PicnickerEdnaAfterBattleText
+	writetext TwinsAnnandanne2AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerHikerTim:
-	trainer HIKER, TIM, EVENT_BEAT_HIKER_TIM, HikerTimSeenText, HikerTimBeatenText, 0, .Script
+TrainerPsychicGreg:
+	trainer PSYCHIC_T, GREG, EVENT_BEAT_PSYCHIC_GREG, PsychicGregSeenText, PsychicGregBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext HikerTimAfterBattleText
+	writetext PsychicGregAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerHikerSidney:
-	trainer HIKER, SIDNEY, EVENT_BEAT_HIKER_SIDNEY, HikerSidneySeenText, HikerSidneyBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
+SunnyScript:
+	faceplayer
 	opentext
-	writetext HikerSidneyAfterBattleText
+	checkevent EVENT_GOT_MAGNET_FROM_SUNNY
+	iftrue SunnySundayScript
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, SunnyNotSundayScript
+	checkevent EVENT_MET_SUNNY_OF_SUNDAY
+	iftrue .MetSunny
+	writetext MeetSunnyText
+	promptbutton
+	setevent EVENT_MET_SUNNY_OF_SUNDAY
+.MetSunny:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .Kris
+	writetext SunnyGivesGiftText1
+	promptbutton
+	sjump .next
+.Kris:
+	writetext SunnyGivesGiftText2
+	promptbutton
+.next
+	verbosegiveitem MAGNET
+	iffalse SunnyDoneScript
+	setevent EVENT_GOT_MAGNET_FROM_SUNNY
+	writetext SunnyGaveGiftText
 	waitbutton
 	closetext
 	end
 
-Route9Sign:
-	jumptext Route9SignText
+SunnySundayScript:
+	writetext SunnySundayText
+	waitbutton
+SunnyDoneScript:
+	closetext
+	end
 
-Route9HiddenEther:
-	hiddenitem ETHER, EVENT_ROUTE_9_HIDDEN_ETHER
+SunnyNotSundayScript:
+	writetext SunnyNotSundayText
+	waitbutton
+	closetext
+	end
 
-CamperDeanSeenText:
-	text "I came to explore"
-	line "ROCK TUNNEL."
+Route37Sign:
+	jumptext Route37SignText
+
+Route37FruitTree1:
+	fruittree FRUITTREE_ROUTE_37_1
+
+Route37FruitTree2:
+	fruittree FRUITTREE_ROUTE_37_2
+
+Route37FruitTree3:
+	fruittree FRUITTREE_ROUTE_37_3
+
+Route37HiddenEther:
+	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
+
+TwinsAnnandanne1SeenText:
+	text "ANN: ANNE and I"
+	line "are in this to-"
+	cont "gether!"
 	done
 
-CamperDeanBeatenText:
-	text "Whoa! Danger, man."
+TwinsAnnandanne1BeatenText:
+	text "ANN & ANNE: Nnn… A"
+	line "little too strong."
 	done
 
-CamperDeanAfterBattleText:
-	text "My #MON were"
-	line "hurt before even"
+TwinsAnnandanne1AfterBattleText:
+	text "ANN: I can tell"
+	line "what my sister and"
 
-	para "entering ROCK"
-	line "TUNNEL."
-
-	para "I'd better take"
-	line "them to a #MON"
-	cont "CENTER right away."
+	para "my #MON are"
+	line "thinking."
 	done
 
-PicnickerHeidiSeenText:
-	text "Have you ever been"
-	line "to a picnic?"
-
-	para "They're so much"
-	line "fun!"
+TwinsAnnandanne2SeenText:
+	text "ANNE: ANN and I"
+	line "are in this to-"
+	cont "gether!"
 	done
 
-PicnickerHeidiBeatenText:
-	text "Ohhhh!"
+TwinsAnnandanne2BeatenText:
+	text "ANN & ANNE: Nnn… A"
+	line "little too strong."
 	done
 
-PicnickerHeidiAfterBattleText:
-	text "We bake lots of"
-	line "goodies and share"
-
-	para "them all around."
-	line "They're delicious!"
+TwinsAnnandanne2AfterBattleText:
+	text "ANNE: We share the"
+	line "same feelings as"
+	cont "our #MON."
 	done
 
-CamperSidSeenText:
-	text "Hey, you!"
-	line "Don't litter!"
+PsychicGregSeenText:
+	text "#MON can't do a"
+	line "thing if they are"
+	cont "asleep."
+
+	para "I'll show you how"
+	line "scary that is!"
 	done
 
-CamperSidBeatenText:
-	text "I was just point-"
-	line "ing out…"
+PsychicGregBeatenText:
+	text "I lost. That's"
+	line "pretty sad…"
 	done
 
-CamperSidAfterBattleText:
-	text "Sorry. You weren't"
-	line "littering. It was"
-	cont "my mistake."
+PsychicGregAfterBattleText:
+	text "Putting #MON to"
+	line "sleep or paralyz-"
+	cont "ing them are good"
+	cont "battle techniques."
 	done
 
-PicnickerEdnaSeenText:
-	text "People shouldn't"
-	line "leave any litter"
-	cont "behind."
+MeetSunnyText:
+	text "SUNNY: Hi!"
+
+	para "I'm SUNNY of Sun-"
+	line "day, meaning it's"
+	cont "Sunday today!"
 	done
 
-PicnickerEdnaBeatenText:
-	text "Ohh… I lost…"
+SunnyGivesGiftText1:
+	text "I was told to give"
+	line "you this if I saw"
+	cont "you!"
 	done
 
-PicnickerEdnaAfterBattleText:
-	text "Conserving energy"
-	line "is important, but"
-
-	para "the environment is"
-	line "even more vital."
+SunnyGivesGiftText2:
+	text "I was told to give"
+	line "you this if I saw"
+	cont "you!"
 	done
 
-HikerTimSeenText:
-	text "She'll be coming"
-	line "'round MT.SILVER"
-	cont "when she comes…"
+SunnyGaveGiftText:
+	text "SUNNY: That thing…"
 
-	para "MT.SILVER is in"
-	line "JOHTO, right?"
+	para "Um…"
+
+	para "… What was it now…"
+
+	para "…"
+
+	para "Oh! I remember"
+	line "now!"
+
+	para "A #MON that"
+	line "knows electric"
+
+	para "moves should hold"
+	line "it."
+
+	para "My sis MONICA said"
+	line "it powers up"
+	cont "electric moves!"
 	done
 
-HikerTimBeatenText:
-	text "I was too busy"
-	line "singing…"
+SunnySundayText:
+	text "SUNNY: My sisters"
+	line "and brothers are"
+	cont "MONICA, TUSCANY,"
+	cont "WESLEY, ARTHUR,"
+	cont "FRIEDA and SANTOS."
+
+	para "They're all older"
+	line "than me!"
 	done
 
-HikerTimAfterBattleText:
-	text "Battles are about"
-	line "concentration."
+SunnyNotSundayText:
+	text "SUNNY: Isn't today"
+	line "Sunday?"
+	cont "Um… I forgot!"
 	done
 
-HikerSidneySeenText:
-	text "I'll tell you a"
-	line "secret."
-
-	para "But first, we"
-	line "battle!"
+Route37SignText:
+	text "ROUTE 37"
 	done
 
-HikerSidneyBeatenText:
-	text "Oh, dang!"
-	line "I lost that…"
-	done
-
-HikerSidneyAfterBattleText:
-	text "The POWER PLANT is"
-	line "across a small"
-	cont "river."
-	done
-
-Route9SignText:
-	text "ROUTE 9"
-
-	para "CERULEAN CITY -"
-	line "ROCK TUNNEL"
-	done
-
-Route9_MapEvents:
+Route37_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 48, 15, ROCK_TUNNEL_1F, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 15,  7, BGEVENT_READ, Route9Sign
-	bg_event 41, 15, BGEVENT_ITEM, Route9HiddenEther
+	bg_event 45,  3, BGEVENT_READ, Route37Sign
+	bg_event 44,  2, BGEVENT_ITEM, Route37HiddenEther
 
 	def_object_events
-	object_event 23, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperDean, -1
-	object_event 39,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerHeidi, -1
-	object_event 11,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperSid, -1
-	object_event 12, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerEdna, -1
-	object_event 28,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerTim, -1
-	object_event 36, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerSidney, -1
+	object_event 46, 12, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
+	object_event 47, 12, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
+	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicGreg, -1
+	object_event 53,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree1, -1
+	object_event 56, 14, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SunnyScript, EVENT_ROUTE_37_SUNNY_OF_SUNDAY
+	object_event 56,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree2, -1
+	object_event 64,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree3, -1

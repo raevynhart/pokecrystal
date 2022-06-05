@@ -1,150 +1,557 @@
 	object_const_def
-	const ROUTE17_BIKER1
-	const ROUTE17_BIKER2
-	const ROUTE17_BIKER3
-	const ROUTE17_BIKER4
+	const ROUTE45_POKEFAN_M1
+	const ROUTE45_POKEFAN_M2
+	const ROUTE45_POKEFAN_M3
+	const ROUTE45_POKEFAN_M4
+	const ROUTE45_BLACK_BELT
+	const ROUTE45_COOLTRAINER_M
+	const ROUTE45_COOLTRAINER_F
+	const ROUTE45_FRUIT_TREE
+	const ROUTE45_POKE_BALL1
+	const ROUTE45_POKE_BALL2
+	const ROUTE45_POKE_BALL3
+	const ROUTE45_POKE_BALL4
+	const ROUTE45_YOUNGSTER
 
-Route17_MapScripts:
+Route45_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .AlwaysOnBike
 
-.AlwaysOnBike:
-	setflag ENGINE_ALWAYS_ON_BIKE
-	setflag ENGINE_DOWNHILL
-	endcallback
-
-TrainerBikerCharles:
-	trainer BIKER, CHARLES, EVENT_BEAT_BIKER_CHARLES, BikerCharlesSeenText, BikerCharlesBeatenText, 0, .Script
+TrainerBlackbeltKenji:
+	trainer BLACKBELT_T, KENJI3, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
 
 .Script:
+	loadvar VAR_CALLERID, PHONE_BLACKBELT_KENJI
 	endifjustbattled
 	opentext
-	writetext BikerCharlesAfterBattleText
+	checkcellnum PHONE_BLACKBELT_KENJI
+	iftrue .Registered
+	checkevent EVENT_KENJI_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
+	special SampleKenjiBreakCountdown
+	writetext BlackbeltKenjiAfterBattleText
+	waitbutton
+	setevent EVENT_KENJI_ASKED_FOR_PHONE_NUMBER
+	scall Route45AskNumber1M
+	sjump .AskForNumber
+
+.AskedAlready:
+	scall Route45AskNumber2M
+.AskForNumber:
+	askforphonenumber PHONE_BLACKBELT_KENJI
+	ifequal PHONE_CONTACTS_FULL, Route45PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route45NumberDeclinedM
+	gettrainername STRING_BUFFER_3, BLACKBELT_T, KENJI3
+	scall Route45RegisteredNumberM
+	sjump Route45NumberAcceptedM
+
+.Registered:
+	readvar VAR_KENJI_BREAK
+	ifnotequal 1, Route45NumberAcceptedM
+	checktime MORN
+	iftrue .Morning
+	checktime NITE
+	iftrue .Night
+	checkevent EVENT_KENJI_ON_BREAK
+	iffalse Route45NumberAcceptedM
+	scall Route45GiftM
+	verbosegiveitem PP_UP
+	iffalse .NoRoom
+	clearevent EVENT_KENJI_ON_BREAK
+	special SampleKenjiBreakCountdown
+	sjump Route45NumberAcceptedM
+
+.Morning:
+	writetext BlackbeltKenjiMorningText
 	waitbutton
 	closetext
 	end
 
-TrainerBikerRiley:
-	trainer BIKER, RILEY, EVENT_BEAT_BIKER_RILEY, BikerRileySeenText, BikerRileyBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext BikerRileyAfterBattleText
+.Night:
+	writetext BlackbeltKenjiNightText
 	waitbutton
 	closetext
 	end
 
-TrainerBikerJoel:
-	trainer BIKER, JOEL, EVENT_BEAT_BIKER_JOEL, BikerJoelSeenText, BikerJoelBeatenText, 0, .Script
+.NoRoom:
+	sjump Route45PackFullM
+
+Route45AskNumber1M:
+	jumpstd AskNumber1MScript
+	end
+
+Route45AskNumber2M:
+	jumpstd AskNumber2MScript
+	end
+
+Route45RegisteredNumberM:
+	jumpstd RegisteredNumberMScript
+	end
+
+Route45NumberAcceptedM:
+	jumpstd NumberAcceptedMScript
+	end
+
+Route45NumberDeclinedM:
+	jumpstd NumberDeclinedMScript
+	end
+
+Route45PhoneFullM:
+	jumpstd PhoneFullMScript
+	end
+
+Route45RematchM:
+	jumpstd RematchMScript
+	end
+
+Route45GiftM:
+	jumpstd GiftMScript
+	end
+
+Route45PackFullM:
+	jumpstd PackFullMScript
+	end
+
+HikerParryHasIron:
+	setevent EVENT_PARRY_IRON
+	jumpstd PackFullMScript
+	end
+
+Route45RematchGiftM:
+	jumpstd RematchGiftMScript
+	end
+
+TrainerHikerErik:
+	trainer HIKER, ERIK, EVENT_BEAT_HIKER_ERIK, HikerErikSeenText, HikerErikBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BikerJoelAfterBattleText
+	writetext HikerErikAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerBikerGlenn:
-	trainer BIKER, GLENN, EVENT_BEAT_BIKER_GLENN, BikerGlennSeenText, BikerGlennBeatenText, 0, .Script
+TrainerHikerMichael:
+	trainer HIKER, MICHAEL, EVENT_BEAT_HIKER_MICHAEL, HikerMichaelSeenText, HikerMichaelBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BikerGlennAfterBattleText
+	writetext HikerMichaelAfterBattleText
 	waitbutton
 	closetext
 	end
 
-Route17HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_17_HIDDEN_MAX_ETHER
+TrainerHikerParry:
+	trainer HIKER, PARRY3, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
 
-Route17HiddenMaxElixer:
-	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
+.Script:
+	loadvar VAR_CALLERID, PHONE_HIKER_PARRY
+	endifjustbattled
+	opentext
+	checkflag ENGINE_PARRY_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkcellnum PHONE_HIKER_PARRY
+	iftrue Route45NumberAcceptedM
+	checkevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
+	writetext HikerParryAfterBattleText
+	promptbutton
+	setevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
+	scall Route45AskNumber1M
+	sjump .AskForNumber
 
-BikerRileySeenText:
-	text "Hey, you! You're"
-	line "from JOHTO, huh?"
+.AskedAlready:
+	scall Route45AskNumber2M
+.AskForNumber:
+	askforphonenumber PHONE_HIKER_PARRY
+	ifequal PHONE_CONTACTS_FULL, Route45PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route45NumberDeclinedM
+	gettrainername STRING_BUFFER_3, HIKER, PARRY1
+	scall Route45RegisteredNumberM
+	sjump Route45NumberAcceptedM
+
+.WantsBattle:
+	scall Route45RematchM
+	winlosstext HikerParry3BeatenText, 0
+	readmem wParryFightCount
+	ifequal 2, .Fight2
+	ifequal 1, .Fight1
+	ifequal 0, .LoadFight0
+.Fight2:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight2
+.Fight1:
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight1
+.LoadFight0:
+	loadtrainer HIKER, PARRY3
+	startbattle
+	reloadmapafterbattle
+	loadmem wParryFightCount, 1
+	clearflag ENGINE_PARRY_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer HIKER, PARRY1
+	startbattle
+	reloadmapafterbattle
+	loadmem wParryFightCount, 2
+	clearflag ENGINE_PARRY_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer HIKER, PARRY2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_PARRY_READY_FOR_REMATCH
+	checkevent EVENT_PARRY_IRON
+	iftrue .HasIron
+	checkevent EVENT_GOT_IRON_FROM_PARRY
+	iftrue .GotIron
+	scall Route45RematchGiftM
+	verbosegiveitem IRON
+	iffalse HikerParryHasIron
+	setevent EVENT_GOT_IRON_FROM_PARRY
+	sjump Route45NumberAcceptedM
+
+.GotIron:
+	end
+
+.HasIron:
+	opentext
+	writetext HikerParryGivesIronText
+	waitbutton
+	verbosegiveitem IRON
+	iffalse HikerParryHasIron
+	clearevent EVENT_PARRY_IRON
+	setevent EVENT_GOT_IRON_FROM_PARRY
+	sjump Route45NumberAcceptedM
+
+TrainerHikerTimothy:
+	trainer HIKER, TIMOTHY, EVENT_BEAT_HIKER_TIMOTHY, HikerTimothySeenText, HikerTimothyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext HikerTimothyAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainermRyan:
+	trainer COOLTRAINERM, RYAN, EVENT_BEAT_COOLTRAINERM_RYAN, CooltrainermRyanSeenText, CooltrainermRyanBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainermRyanAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerfKelly:
+	trainer COOLTRAINERF, KELLY, EVENT_BEAT_COOLTRAINERF_KELLY, CooltrainerfKellySeenText, CooltrainerfKellyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerfKellyAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCamperQuentin:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_CAMPER_QUENTIN
+	iftrue .Defeated
+	writetext CamperQuentinSeenText
+	waitbutton
+	closetext
+	winlosstext CamperQuentinBeatenText, 0
+	loadtrainer CAMPER, QUENTIN
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CAMPER_QUENTIN
+	closetext
+	end
+
+.Defeated:
+	writetext CamperQuentinAfterBattleText
+	waitbutton
+	closetext
+	end
+
+Route45DummyScript: ; unreferenced
+	writetext Route45DummyText
+	waitbutton
+	closetext
+	end
+
+Route45Sign:
+	jumptext Route45SignText
+
+Route45FruitTree:
+	fruittree FRUITTREE_ROUTE_45
+
+Route45Nugget:
+	itemball NUGGET
+
+Route45Revive:
+	itemball REVIVE
+
+Route45Elixer:
+	itemball ELIXER
+
+Route45MaxPotion:
+	itemball MAX_POTION
+
+Route45HiddenPpUp:
+	hiddenitem PP_UP, EVENT_ROUTE_45_HIDDEN_PP_UP
+
+HikerErikSeenText:
+	text "Be prepared for"
+	line "anything!"
+
+	para "Let me see if your"
+	line "#MON have been"
+	cont "raised properly!"
 	done
 
-BikerRileyBeatenText:
-	text "Whoa, you kick!"
+HikerErikBeatenText:
+	text "Oh, I lost that!"
 	done
 
-BikerRileyAfterBattleText:
-	text "Don't get cocky,"
-	line "you JOHTO punk!"
+HikerErikAfterBattleText:
+	text "I'll head back to"
+	line "BLACKTHORN's ICE"
+
+	para "PATH and train"
+	line "some more."
 	done
 
-BikerJoelSeenText:
-	text "Wow. That's a cool"
-	line "BICYCLE!"
+HikerMichaelSeenText:
+	text "Yo! You're spunky!"
+	line "But you know what?"
+
+	para "When it comes to"
+	line "sheer spunkiness,"
+	cont "I'm the man!"
 	done
 
-BikerJoelBeatenText:
-	text "But you don't just"
-	line "look cool…"
+HikerMichaelBeatenText:
+	text "My #MON weren't"
+	line "spunky enough!"
 	done
 
-BikerJoelAfterBattleText:
-	text "I look cool, but"
-	line "I'm weak, so I'm"
-	cont "not really cool."
+HikerMichaelAfterBattleText:
+	text "Boy, do I love"
+	line "HP UP! Mmmm, yum!"
 
-	para "I have to train"
-	line "harder…"
+	para "I keep drinking my"
+	line "#MON's!"
+
+	para "I can't help it!"
 	done
 
-BikerGlennSeenText:
-	text "Hey! Want to have"
-	line "a speed battle?"
+HikerParry3SeenText:
+	text "My #MON are"
+	line "power packed!"
 	done
 
-BikerGlennBeatenText:
-	text "Yikes! You've got"
-	line "awesome torque!"
+HikerParry3BeatenText:
+	text "Wahahah! I'm the"
+	line "big loser!"
 	done
 
-BikerGlennAfterBattleText:
-	text "Hands-free riding"
-	line "is considered cool"
-	cont "on CYCLING ROAD."
+HikerParryAfterBattleText:
+	text "I'm not much good"
+	line "at thinking, see?"
+
+	para "So, I just plow"
+	line "ahead with power!"
 	done
 
-BikerCharlesSeenText:
-	text "We're fearless"
-	line "highway stars!"
+HikerTimothySeenText:
+	text "Why do I climb"
+	line "mountains?"
+
+	para "Because they're"
+	line "there."
+
+	para "Why do I train"
+	line "#MON?"
+
+	para "Because they're"
+	line "there!"
 	done
 
-BikerCharlesBeatenText:
-	text "Arrrgh! Crash and"
-	line "burn!"
+HikerTimothyBeatenText:
+	text "Losses…"
+	line "They're there too!"
 	done
 
-BikerCharlesAfterBattleText:
-	text "Reckless driving"
-	line "causes accidents!"
-	cont "Take it easy!"
+HikerTimothyAfterBattleText:
+	text "The best thing to"
+	line "ever happen to me"
+
+	para "was discovering"
+	line "#MON."
 	done
 
-Route17_MapEvents:
+HikerParryGivesIronText:
+	text "I just can't find"
+	line "a way to win!"
+
+	para "Keep it up!"
+
+	para "Oh, and take this"
+	line "--it's the gift"
+
+	para "you couldn't take"
+	line "when we last met."
+	done
+
+BlackbeltKenji3SeenText:
+	text "I was training"
+	line "here alone."
+
+	para "Behold the fruits"
+	line "of my labor!"
+	done
+
+BlackbeltKenji3BeatenText:
+	text "Waaaargh!"
+	done
+
+BlackbeltKenjiAfterBattleText:
+	text "This calls for"
+	line "extreme measures."
+
+	para "I must take to the"
+	line "hills and train in"
+	cont "solitude."
+	done
+
+BlackbeltKenjiMorningText:
+	text "I'm going to train"
+	line "a bit more before"
+	cont "I break for lunch."
+	done
+
+BlackbeltKenjiNightText:
+	text "We had plenty of"
+	line "rest at lunch, so"
+
+	para "now we're all"
+	line "ready to go again!"
+
+	para "We're going to"
+	line "train again!"
+	done
+
+CooltrainermRyanSeenText:
+	text "What are your"
+	line "thoughts on rais-"
+	cont "ing #MON?"
+	done
+
+CooltrainermRyanBeatenText:
+	text "You've won my"
+	line "respect."
+	done
+
+CooltrainermRyanAfterBattleText:
+	text "I see you're rais-"
+	line "ing your #MON"
+	cont "with care."
+
+	para "The bond you build"
+	line "will save you in"
+	cont "tough situations."
+	done
+
+CooltrainerfKellySeenText:
+	text "What is your"
+	line "battle strategy?"
+
+	para "It is foolish to"
+	line "use strong moves"
+	cont "indiscriminately."
+	done
+
+CooltrainerfKellyBeatenText:
+	text "Fine. I lost."
+	done
+
+CooltrainerfKellyAfterBattleText:
+	text "I'm not in favor"
+	line "of overly power-"
+	cont "ful moves."
+
+	para "I want to win, but"
+	line "I also don't want"
+	cont "to harm #MON."
+	done
+
+Route45DummyText:
+	text "I'm really, really"
+	line "tough!"
+
+	para "Is there anywhere"
+	line "I can prove how"
+	cont "tough I really am?"
+	done
+
+CamperQuentinSeenText:
+	text "I'm really, really"
+	line "tough!"
+	done
+
+CamperQuentinBeatenText:
+	text "I was tough at the"
+	line "BATTLE TOWER…"
+	done
+
+CamperQuentinAfterBattleText:
+	text "Have you been to"
+	line "the BATTLE TOWER?"
+
+	para "I never, ever lose"
+	line "there, but…"
+	done
+
+Route45SignText:
+	text "ROUTE 45"
+	line "MOUNTAIN RD. AHEAD"
+	done
+
+Route45_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 82, ROUTE_17_ROUTE_18_GATE, 1
-	warp_event 17, 83, ROUTE_17_ROUTE_18_GATE, 2
+	warp_event  2,  5, DARK_CAVE_BLACKTHORN_ENTRANCE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  9, 54, BGEVENT_ITEM, Route17HiddenMaxEther
-	bg_event  8, 77, BGEVENT_ITEM, Route17HiddenMaxElixer
+	bg_event  4,  2, BGEVENT_READ, Route45Sign
+	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenPpUp
 
 	def_object_events
-	object_event  4, 17, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
-	object_event  9, 68, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBikerJoel, -1
-	object_event  3, 53, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerGlenn, -1
-	object_event  6, 80, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerCharles, -1
+	object_event 17,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerErik, -1
+	object_event 15, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerMichael, -1
+	object_event  5, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerParry, -1
+	object_event  9, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerTimothy, -1
+	object_event 11, 50, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltKenji, -1
+	object_event 17, 13, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermRyan, -1
+	object_event  5, 36, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKelly, -1
+	object_event 16, 82, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45FruitTree, -1
+	object_event  6, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Nugget, EVENT_ROUTE_45_NUGGET
+	object_event  5, 66, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Revive, EVENT_ROUTE_45_REVIVE
+	object_event  5, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER
+	object_event  7, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45MaxPotion, EVENT_ROUTE_45_MAX_POTION
+	object_event  4, 70, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerCamperQuentin, -1

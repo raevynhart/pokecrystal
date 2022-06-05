@@ -1,186 +1,362 @@
 	object_const_def
-	const ROUTE12_FISHER1
-	const ROUTE12_FISHER2
-	const ROUTE12_FISHER3
-	const ROUTE12_FISHER4
-	const ROUTE12_POKE_BALL1
-	const ROUTE12_POKE_BALL2
+	const ROUTE40_OLIVINE_RIVAL1
+	const ROUTE40_OLIVINE_RIVAL2
+	const ROUTE40_SWIMMER_GIRL1
+	const ROUTE40_SWIMMER_GIRL2
+	const ROUTE40_ROCK1
+	const ROUTE40_ROCK2
+	const ROUTE40_ROCK3
+	const ROUTE40_LASS1
+	const ROUTE40_MONICA
+	const ROUTE40_POKEFAN_M
+	const ROUTE40_LASS2
+	const ROUTE40_STANDING_YOUNGSTER
 
-Route12_MapScripts:
+Route40_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .MonicaCallback
 
-TrainerFisherKyle:
-	trainer FISHER, KYLE, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script
+.MonicaCallback:
+	clearevent EVENT_BATTLE_TOWER_OUTSIDE_SAILOR
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .MonicaAppears
+	disappear ROUTE40_MONICA
+	endcallback
 
-.Script:
-	endifjustbattled
-	opentext
-	writetext FisherKyleAfterBattleText
-	waitbutton
-	closetext
-	end
+.MonicaAppears:
+	appear ROUTE40_MONICA
+	endcallback
 
-TrainerFisherMartin:
-	trainer FISHER, MARTIN, EVENT_BEAT_FISHER_MARTIN, FisherMartinSeenText, FisherMartinBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext FisherMartinAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerFisherStephen:
-	trainer FISHER, STEPHEN, EVENT_BEAT_FISHER_STEPHEN, FisherStephenSeenText, FisherStephenBeatenText, 0, .Script
+TrainerSwimmerfElaine:
+	trainer SWIMMERF, ELAINE, EVENT_BEAT_SWIMMERF_ELAINE, SwimmerfElaineSeenText, SwimmerfElaineBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext FisherStephenAfterBattleText
+	writetext SwimmerfElaineAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherBarney:
-	trainer FISHER, BARNEY, EVENT_BEAT_FISHER_BARNEY, FisherBarneySeenText, FisherBarneyBeatenText, 0, .Script
+TrainerSwimmerfPaula:
+	trainer SWIMMERF, PAULA, EVENT_BEAT_SWIMMERF_PAULA, SwimmerfPaulaSeenText, SwimmerfPaulaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext FisherBarneyAfterBattleText
+	writetext SwimmerfPaulaAfterBattleText
 	waitbutton
 	closetext
 	end
 
-Route12Sign:
-	jumptext Route12SignText
+TrainerSwimmermSimon:
+	trainer SWIMMERM, SIMON, EVENT_BEAT_SWIMMERM_SIMON, SwimmermSimonSeenText, SwimmermSimonBeatenText, 0, .Script
 
-FishingSpotSign:
-	jumptext FishingSpotSignText
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermSimonAfterBattleText
+	waitbutton
+	closetext
+	end
 
-Route12Calcium:
-	itemball CALCIUM
+TrainerSwimmermRandall:
+	trainer SWIMMERM, RANDALL, EVENT_BEAT_SWIMMERM_RANDALL, SwimmermRandallSeenText, SwimmermRandallBeatenText, 0, .Script
 
-Route12Nugget:
-	itemball NUGGET
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmermRandallAfterBattleText
+	waitbutton
+	closetext
+	end
 
-Route12HiddenElixer:
-	hiddenitem ELIXER, EVENT_ROUTE_12_HIDDEN_ELIXER
+Route40Lass1Script:
+	jumptextfaceplayer Route40Lass1Text
 
-FisherMartinSeenText:
-	text "Patience is the"
-	line "key to both fish-"
-	cont "ing and #MON."
+Route40PokefanMScript:
+	special Mobile_DummyReturnFalse
+	iftrue .mobile
+	jumptextfaceplayer Route40PokefanMText
+
+.mobile
+	jumptextfaceplayer Route40PokefanMText_Mobile
+
+Route40Lass2Script:
+	jumptextfaceplayer Route40Lass2Text
+
+Route40StandingYoungsterScript:
+	jumptextfaceplayer Route40StandingYoungsterText
+
+MonicaScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_SHARP_BEAK_FROM_MONICA
+	iftrue .Monday
+	readvar VAR_WEEKDAY
+	ifnotequal MONDAY, .NotMonday
+	checkevent EVENT_MET_MONICA_OF_MONDAY
+	iftrue .MetMonica
+	writetext MeetMonicaText
+	promptbutton
+	setevent EVENT_MET_MONICA_OF_MONDAY
+.MetMonica:
+	writetext MonicaGivesGiftText
+	promptbutton
+	verbosegiveitem SHARP_BEAK
+	iffalse .done
+	setevent EVENT_GOT_SHARP_BEAK_FROM_MONICA
+	writetext MonicaGaveGiftText
+	waitbutton
+	closetext
+	end
+
+.Monday:
+	writetext MonicaMondayText
+	waitbutton
+.done:
+	closetext
+	end
+
+.NotMonday:
+	writetext MonicaNotMondayText
+	waitbutton
+	closetext
+	end
+
+Route40Sign:
+	jumptext Route40SignText
+
+Route40Rock:
+	jumpstd SmashRockScript
+
+Route40HiddenHyperPotion:
+	hiddenitem HYPER_POTION, EVENT_ROUTE_40_HIDDEN_HYPER_POTION
+
+Route40_StepRightUp6Movement: ; unreferenced
+	step RIGHT
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+Route40_StepUp5Movement: ; unreferenced
+	step UP
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+Route40_StepUp4Movement: ; unreferenced
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+SwimmermSimonSeenText:
+	text "You have to warm"
+	line "up before going"
+	cont "into the water."
+
+	para "That's basic."
 	done
 
-FisherMartinBeatenText:
-	text "Gwaaah!"
+SwimmermSimonBeatenText:
+	text "OK! Uncle! I give!"
 	done
 
-FisherMartinAfterBattleText:
-	text "I'm too impatient"
-	line "for fishing…"
+SwimmermSimonAfterBattleText:
+	text "CIANWOOD CITY is"
+	line "a good distance"
+	cont "away from here."
 	done
 
-FisherStephenSeenText:
-	text "I feel so content,"
-	line "fishing while lis-"
-	cont "tening to some"
-	cont "tunes on my radio."
+SwimmermRandallSeenText:
+	text "Hey, you're young"
+	line "and fit!"
+
+	para "Don't ride your"
+	line "#MON! Swim!"
 	done
 
-FisherStephenBeatenText:
-	text "My stupid radio"
-	line "distracted me!"
+SwimmermRandallBeatenText:
+	text "Uh-oh. I lost…"
 	done
 
-FisherStephenAfterBattleText:
-	text "Have you checked"
-	line "out KANTO's radio"
-
-	para "programs? We get a"
-	line "good variety here."
+SwimmermRandallAfterBattleText:
+	text "Swimming exercises"
+	line "your entire body."
+	cont "It's healthy."
 	done
 
-FisherBarneySeenText:
-	text "What's most impor-"
-	line "tant in our every-"
-	cont "day lives?"
+SwimmerfElaineSeenText:
+	text "Are you going to"
+	line "CIANWOOD?"
+
+	para "How about a quick"
+	line "battle first?"
 	done
 
-FisherBarneyBeatenText:
-	text "The answer is"
-	line "coming up next!"
+SwimmerfElaineBeatenText:
+	text "I lost that one!"
 	done
 
-FisherBarneyAfterBattleText:
-	text "I think electric-"
-	line "ity is the most"
-
-	para "important thing in"
-	line "our daily lives."
-
-	para "If it weren't,"
-	line "people wouldn't"
-
-	para "have made such a"
-	line "fuss when the"
-
-	para "POWER PLANT went"
-	line "out of commission."
+SwimmerfElaineAfterBattleText:
+	text "I'd say I'm a bet-"
+	line "ter swimmer than"
+	cont "you. Yeah!"
 	done
 
-FisherKyleSeenText:
-	text "Do you remember?"
+SwimmerfPaulaSeenText:
+	text "No inner tube for"
+	line "me."
+
+	para "I'm hanging on to"
+	line "a sea #MON!"
 	done
 
-FisherKyleBeatenText:
-	text "You do remember?"
+SwimmerfPaulaBeatenText:
+	text "Ooh, I'm feeling"
+	line "dizzy!"
 	done
 
-FisherKyleAfterBattleText:
-	text "The tug you feel"
-	line "on the ROD when"
-
-	para "you hook a #-"
-	line "MON…"
-
-	para "That's the best"
-	line "feeling ever for"
-	cont "an angler like me."
+SwimmerfPaulaAfterBattleText:
+	text "While I float like"
+	line "this, the waves"
+	cont "carry me along."
 	done
 
-Route12SignText:
-	text "ROUTE 12"
+Route40Lass1Text:
+	text "Although you can't"
+	line "see it from here,"
 
-	para "NORTH TO LAVENDER"
-	line "TOWN"
+	para "CIANWOOD is across"
+	line "the sea."
 	done
 
-FishingSpotSignText:
-	text "FISHING SPOT"
+Route40PokefanMText:
+	text "Hm! There's a big"
+	line "building up ahead!"
+
+	para "What is it?"
 	done
 
-Route12_MapEvents:
+Route40PokefanMText_Mobile:
+	text "Hm! Look at all"
+	line "those serious-"
+	cont "looking trainers"
+	cont "streaming in."
+
+	para "What? What?"
+	done
+
+Route40Lass2Text:
+	text "I came to OLIVINE"
+	line "by ship to see the"
+
+	para "sights and soak up"
+	line "the atmosphere."
+
+	para "Being a port, it"
+	line "feels so different"
+	cont "from a big city."
+	done
+
+Route40StandingYoungsterText:
+	text "Have you gone to"
+	line "the BATTLE TOWER?"
+
+	para "I think a lot of"
+	line "tough trainers"
+
+	para "have gathered"
+	line "there already."
+
+	para "But since you have"
+	line "so many BADGES,"
+
+	para "you shouldn't do"
+	line "badly at all."
+	done
+
+MeetMonicaText:
+	text "MONICA: Glad to"
+	line "meet you. I'm"
+
+	para "MONICA of Monday."
+	done
+
+MonicaGivesGiftText:
+	text "As a token of our"
+	line "friendship, I have"
+	cont "a gift for you!"
+	done
+
+MonicaGaveGiftText:
+	text "MONICA: It's an"
+	line "item that raises"
+
+	para "the power of fly-"
+	line "ing-type moves."
+
+	para "You should equip a"
+	line "bird #MON with"
+	cont "that item."
+	done
+
+MonicaMondayText:
+	text "MONICA: My broth-"
+	line "ers and sisters"
+
+	para "are all over the"
+	line "place."
+
+	para "See if you could"
+	line "find them all!"
+	done
+
+MonicaNotMondayText:
+	text "MONICA: I don't"
+	line "think today is"
+	cont "Monday. How sad…"
+	done
+
+Route40SignText:
+	text "ROUTE 40"
+
+	para "CIANWOOD CITY -"
+	line "OLIVINE CITY"
+	done
+
+Route40_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11, 33, ROUTE_12_SUPER_ROD_HOUSE, 1
+	warp_event  2,  2, ROUTE_40_BATTLE_TOWER_GATE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 11, 27, BGEVENT_READ, Route12Sign
-	bg_event 13,  9, BGEVENT_READ, FishingSpotSign
-	bg_event 14, 13, BGEVENT_ITEM, Route12HiddenElixer
+	bg_event 14, 10, BGEVENT_READ, Route40Sign
+	bg_event  7,  8, BGEVENT_ITEM, Route40HiddenHyperPotion
 
 	def_object_events
-	object_event  5, 13, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherMartin, -1
-	object_event 14, 23, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherStephen, -1
-	object_event 10, 38, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerFisherBarney, -1
-	object_event  6,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherKyle, -1
-	object_event  5, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Calcium, EVENT_ROUTE_12_CALCIUM
-	object_event  5, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Nugget, EVENT_ROUTE_12_NUGGET
+	object_event 14, 15, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerSwimmermSimon, -1
+	object_event 18, 30, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerSwimmermRandall, -1
+	object_event 18, 12, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerSwimmerfElaine, -1
+	object_event 10, 25, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfPaula, -1
+	object_event  1,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
+	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
+	object_event  7,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
+	object_event 18,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Lass1Script, -1
+	object_event  4, 12, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MonicaScript, EVENT_ROUTE_40_MONICA_OF_MONDAY
+	object_event  7,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40PokefanMScript, -1
+	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route40Lass2Script, -1
+	object_event 16,  9, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route40StandingYoungsterScript, EVENT_BATTLE_TOWER_OUTSIDE_SAILOR

@@ -1,221 +1,526 @@
 	object_const_def
-	const ROUTE15_YOUNGSTER1
-	const ROUTE15_YOUNGSTER2
-	const ROUTE15_YOUNGSTER3
-	const ROUTE15_YOUNGSTER4
-	const ROUTE15_TEACHER1
-	const ROUTE15_TEACHER2
-	const ROUTE15_POKE_BALL
+	const ROUTE43_SUPER_NERD1
+	const ROUTE43_SUPER_NERD2
+	const ROUTE43_SUPER_NERD3
+	const ROUTE43_FISHER
+	const ROUTE43_LASS
+	const ROUTE43_YOUNGSTER
+	const ROUTE43_FRUIT_TREE
+	const ROUTE43_POKE_BALL
 
-Route15_MapScripts:
+Route43_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .CheckIfRockets
 
-TrainerTeacherColette:
-	trainer TEACHER, COLETTE, EVENT_BEAT_TEACHER_COLETTE, TeacherColetteSeenText, TeacherColetteBeatenText, 0, .Script
+.CheckIfRockets:
+	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
+	iftrue .NoRockets
+	setmapscene ROUTE_43_GATE, SCENE_DEFAULT
+	endcallback
 
-.Script:
-	endifjustbattled
-	opentext
-	writetext TeacherColetteAfterBattleText
-	waitbutton
-	closetext
-	end
+.NoRockets:
+	setmapscene ROUTE_43_GATE, SCENE_FINISHED
+	endcallback
 
-TrainerTeacherHillary:
-	trainer TEACHER, HILLARY, EVENT_BEAT_TEACHER_HILLARY, TeacherHillarySeenText, TeacherHillaryBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext TeacherHillaryAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerSchoolboyKipp:
-	trainer SCHOOLBOY, KIPP, EVENT_BEAT_SCHOOLBOY_KIP, SchoolboyKippSeenText, SchoolboyKippBeatenText, 0, .Script
+TrainerCamperSpencer:
+	trainer CAMPER, SPENCER, EVENT_BEAT_CAMPER_SPENCER, CamperSpencerSeenText, CamperSpencerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyKippAfterBattleText
+	writetext CamperSpencerAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyTommy:
-	trainer SCHOOLBOY, TOMMY, EVENT_BEAT_SCHOOLBOY_TOMMY, SchoolboyTommySeenText, SchoolboyTommyBeatenText, 0, .Script
+TrainerPokemaniacBen:
+	trainer POKEMANIAC, BEN, EVENT_BEAT_POKEMANIAC_BEN, PokemaniacBenSeenText, PokemaniacBenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyTommyAfterBattleText
+	writetext PokemaniacBenAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyJohnny:
-	trainer SCHOOLBOY, JOHNNY, EVENT_BEAT_SCHOOLBOY_JOHNNY, SchoolboyJohnnySeenText, SchoolboyJohnnyBeatenText, 0, .Script
+TrainerPokemaniacBrent:
+	trainer POKEMANIAC, BRENT1, EVENT_BEAT_POKEMANIAC_BRENT, PokemaniacBrentSeenText, PokemaniacBrentBeatenText, 0, .Script
+
+.Script:
+	loadvar VAR_CALLERID, PHONE_POKEMANIAC_BRENT
+	endifjustbattled
+	opentext
+	checkflag ENGINE_BRENT_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkcellnum PHONE_POKEMANIAC_BRENT
+	iftrue .NumberAccepted
+	checkevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
+	writetext PokemaniacBrentAfterBattleText
+	promptbutton
+	setevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	sjump .AskForNumber
+
+.AskedAlready:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_POKEMANIAC_BRENT
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	gettrainername STRING_BUFFER_3, POKEMANIAC, BRENT1
+	scall .RegisteredNumber
+	sjump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext PokemaniacBrentBeatenText, 0
+	readmem wBrentFightCount
+	ifequal 3, .Fight3
+	ifequal 2, .Fight2
+	ifequal 1, .Fight1
+	ifequal 0, .LoadFight0
+.Fight3:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight3
+.Fight2:
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight2
+.Fight1:
+	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
+	iftrue .LoadFight1
+.LoadFight0:
+	loadtrainer POKEMANIAC, BRENT1
+	startbattle
+	reloadmapafterbattle
+	loadmem wBrentFightCount, 1
+	clearflag ENGINE_BRENT_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer POKEMANIAC, BRENT2
+	startbattle
+	reloadmapafterbattle
+	loadmem wBrentFightCount, 2
+	clearflag ENGINE_BRENT_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer POKEMANIAC, BRENT3
+	startbattle
+	reloadmapafterbattle
+	loadmem wBrentFightCount, 3
+	clearflag ENGINE_BRENT_READY_FOR_REMATCH
+	end
+
+.LoadFight3:
+	loadtrainer POKEMANIAC, BRENT4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_BRENT_READY_FOR_REMATCH
+	end
+
+.AskNumber1:
+	jumpstd AskNumber1MScript
+	end
+
+.AskNumber2:
+	jumpstd AskNumber2MScript
+	end
+
+.RegisteredNumber:
+	jumpstd RegisteredNumberMScript
+	end
+
+.NumberAccepted:
+	jumpstd NumberAcceptedMScript
+	end
+
+.NumberDeclined:
+	jumpstd NumberDeclinedMScript
+	end
+
+.PhoneFull:
+	jumpstd PhoneFullMScript
+	end
+
+.Rematch:
+	jumpstd RematchMScript
+	end
+
+TrainerPokemaniacRon:
+	trainer POKEMANIAC, RON, EVENT_BEAT_POKEMANIAC_RON, PokemaniacRonSeenText, PokemaniacRonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyJohnnyAfterBattleText
+	writetext PokemaniacRonAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyBilly:
-	trainer SCHOOLBOY, BILLY, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
+TrainerFisherMarvin:
+	trainer FISHER, MARVIN, EVENT_BEAT_FISHER_MARVIN, FisherMarvinSeenText, FisherMarvinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SchoolboyBillyAfterBattleText
+	writetext FisherMarvinAfterBattleText
 	waitbutton
 	closetext
 	end
 
-Route15Sign:
-	jumptext Route15SignText
+TrainerPicnickerTiffany:
+	trainer PICNICKER, TIFFANY3, EVENT_BEAT_PICNICKER_TIFFANY, PicnickerTiffanySeenText, PicnickerTiffanyBeatenText, 0, .Script
 
-Route15PPUp:
-	itemball PP_UP
+.Script:
+	loadvar VAR_CALLERID, PHONE_PICNICKER_TIFFANY
+	endifjustbattled
+	opentext
+	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
+	iftrue .HasPinkBow
+	checkcellnum PHONE_PICNICKER_TIFFANY
+	iftrue .NumberAccepted
+	checkpoke CLEFAIRY
+	iffalse .NoClefairy
+	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
+	writetext PicnickerTiffanyWantsPicnicText
+	promptbutton
+	setevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	sjump .AskForNumber
 
-TeacherColetteSeenText:
-	text "Have you forgotten"
-	line "anything?"
+.AskedAlready:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_PICNICKER_TIFFANY
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	gettrainername STRING_BUFFER_3, PICNICKER, TIFFANY3
+	scall .RegisteredNumber
+	sjump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext PicnickerTiffanyBeatenText, 0
+	readmem wTiffanyFightCount
+	ifequal 3, .Fight3
+	ifequal 2, .Fight2
+	ifequal 1, .Fight1
+	ifequal 0, .LoadFight0
+.Fight3:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight3
+.Fight2:
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight2
+.Fight1:
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight1
+.LoadFight0:
+	loadtrainer PICNICKER, TIFFANY3
+	startbattle
+	reloadmapafterbattle
+	loadmem wTiffanyFightCount, 1
+	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer PICNICKER, TIFFANY1
+	startbattle
+	reloadmapafterbattle
+	loadmem wTiffanyFightCount, 2
+	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer PICNICKER, TIFFANY2
+	startbattle
+	reloadmapafterbattle
+	loadmem wTiffanyFightCount, 3
+	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	end
+
+.LoadFight3:
+	loadtrainer PICNICKER, TIFFANY4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	end
+
+.HasPinkBow:
+	scall .Gift
+	verbosegiveitem PINK_BOW
+	iffalse .NoRoom
+	clearflag ENGINE_TIFFANY_HAS_PINK_BOW
+	setevent EVENT_TIFFANY_GAVE_PINK_BOW
+	sjump .NumberAccepted
+
+.NoRoom:
+	sjump .PackFull
+
+.NoClefairy:
+	writetext PicnickerTiffanyClefairyText
+	waitbutton
+	closetext
+	end
+
+.AskNumber1:
+	jumpstd AskNumber1FScript
+	end
+
+.AskNumber2:
+	jumpstd AskNumber2FScript
+	end
+
+.RegisteredNumber:
+	jumpstd RegisteredNumberFScript
+	end
+
+.NumberAccepted:
+	jumpstd NumberAcceptedFScript
+	end
+
+.NumberDeclined:
+	jumpstd NumberDeclinedFScript
+	end
+
+.PhoneFull:
+	jumpstd PhoneFullFScript
+	end
+
+.Rematch:
+	jumpstd RematchFScript
+	end
+
+.Gift:
+	jumpstd GiftFScript
+	end
+
+.PackFull:
+	jumpstd PackFullFScript
+	end
+
+Route43Sign1:
+	jumptext Route43Sign1Text
+
+Route43Sign2:
+	jumptext Route43Sign2Text
+
+Route43TrainerTips:
+	jumptext Route43TrainerTipsText
+
+Route43FruitTree:
+	fruittree FRUITTREE_ROUTE_43
+
+Route43MaxEther:
+	itemball MAX_ETHER
+
+PokemaniacBenSeenText:
+	text "I love #MON!"
+
+	para "That's why I"
+	line "started--and why"
+
+	para "I'll keep on col-"
+	line "lecting #MON!"
 	done
 
-TeacherColetteBeatenText:
-	text "Kyaaah!"
+PokemaniacBenBeatenText:
+	text "How could you do"
+	line "this to me?"
 	done
 
-TeacherColetteAfterBattleText:
-	text "Before I became a"
-	line "teacher, I used to"
+PokemaniacBenAfterBattleText:
+	text "What else do I"
+	line "like besides"
+	cont "#MON?"
 
-	para "forget a lot of"
-	line "things."
+	para "MARY on the radio."
+	line "I bet she's cute!"
 	done
 
-TeacherHillarySeenText:
-	text "On sunny days, I"
-	line "think that the"
-
-	para "kids would rather"
-	line "be playing in the"
-
-	para "schoolyard than"
-	line "studying in class."
+PokemaniacBrentSeenText:
+	text "Hey! Do you have"
+	line "any rare #MON?"
 	done
 
-TeacherHillaryBeatenText:
-	text "I didn't want to"
-	line "lose…"
+PokemaniacBrentBeatenText:
+	text "Oh, my poor #-"
+	line "MON! Darlings!"
 	done
 
-TeacherHillaryAfterBattleText:
-	text "Studying is impor-"
-	line "tant, but exercise"
-	cont "is just as vital."
+PokemaniacBrentAfterBattleText:
+	text "I'd be happy just"
+	line "to own a single"
+	cont "rare #MON."
 	done
 
-SchoolboyKippSeenText:
-	text "Hang on. I have to"
-	line "phone my mom."
+PokemaniacRonSeenText:
+	text "Would you get"
+	line "this?"
+
+	para "Some <RIVAL> guy"
+	line "made fun of my"
+	cont "#MON!"
+
+	para "Darn it! My #-"
+	line "MON's great!"
 	done
 
-SchoolboyKippBeatenText:
-	text "Sorry, Mom!"
-	line "I was beaten!"
+PokemaniacRonBeatenText:
+	text "My NIDOKING did"
+	line "pretty right on!"
 	done
 
-SchoolboyKippAfterBattleText:
-	text "My mom worries so"
-	line "much about me, I"
+PokemaniacRonAfterBattleText:
+	text "It's okay for"
+	line "people to like"
 
-	para "have to phone her"
-	line "all the time."
+	para "different types"
+	line "of #MON."
+
+	para "#MON isn't just"
+	line "about having the"
+	cont "most powerful one."
 	done
 
-SchoolboyTommySeenText:
-	text "Let's battle."
-	line "I won't lose!"
+FisherMarvinSeenText:
+	text "I'm in a slump."
+
+	para "Maybe it's the"
+	line "gear I'm using."
+
+	para "Let's battle for a"
+	line "change of pace!"
 	done
 
-SchoolboyTommyBeatenText:
-	text "I forgot to do my"
-	line "homework!"
+FisherMarvinBeatenText:
+	text "I lost, but I feel"
+	line "better anyway."
 	done
 
-SchoolboyTommyAfterBattleText:
-	text "Sayonara! I just"
-	line "learned that in my"
-	cont "Japanese class."
+FisherMarvinAfterBattleText:
+	text "KURT's LURE BALL"
+	line "is the best for"
+
+	para "catching hooked"
+	line "#MON."
+
+	para "It's much more"
+	line "effective than a"
+	cont "ULTRA BALL."
 	done
 
-SchoolboyJohnnySeenText:
-	text "We're on a field"
-	line "trip to LAVENDER"
-
-	para "RADIO TOWER for"
-	line "social studies."
+CamperSpencerSeenText:
+	text "I can do so much"
+	line "with my #MON--"
+	cont "it's super-fun!"
 	done
 
-SchoolboyJohnnyBeatenText:
-	text "You're wickedly"
-	line "tough!"
+CamperSpencerBeatenText:
+	text "Losing isn't fun"
+	line "at all…"
 	done
 
-SchoolboyJohnnyAfterBattleText:
-	text "I'm tired of walk-"
-	line "ing. I need to"
-	cont "take a break."
+CamperSpencerAfterBattleText:
+	text "What is going on"
+	line "at LAKE OF RAGE?"
+
+	para "We were planning"
+	line "to camp there."
 	done
 
-SchoolboyBillySeenText:
-	text "My favorite class"
-	line "is gym!"
+PicnickerTiffanySeenText:
+	text "Are you going to"
+	line "LAKE OF RAGE too?"
+
+	para "Let's play for a "
+	line "little while!"
 	done
 
-SchoolboyBillyBeatenText:
-	text "Oh, no!"
-	line "How could I lose?"
+PicnickerTiffanyBeatenText:
+	text "I played too much!"
 	done
 
-SchoolboyBillyAfterBattleText:
-	text "If #MON were a"
-	line "subject at school,"
-	cont "I'd be the best!"
+PicnickerTiffanyWantsPicnicText:
+	text "I'm having a pic-"
+	line "nic with #MON."
+
+	para "Won't you join us?"
 	done
 
-Route15SignText:
-	text "ROUTE 15"
-
-	para "FUCHSIA CITY -"
-	line "LAVENDER TOWN"
+PicnickerTiffanyClefairyText:
+	text "Isn't my CLEFAIRY"
+	line "just the most"
+	cont "adorable thing?"
 	done
 
-Route15_MapEvents:
+Route43Sign1Text:
+	text "ROUTE 43"
+
+	para "LAKE OF RAGE -"
+	line "MAHOGANY TOWN"
+	done
+
+Route43Sign2Text:
+	text "ROUTE 43"
+
+	para "LAKE OF RAGE -"
+	line "MAHOGANY TOWN"
+	done
+
+Route43TrainerTipsText:
+	text "TRAINER TIPS"
+
+	para "All #MON have"
+	line "pros and cons"
+
+	para "depending on their"
+	line "types."
+
+	para "If their types"
+	line "differ, a higher-"
+
+	para "level #MON may"
+	line "lose in battle."
+
+	para "Learn which types"
+	line "are strong and"
+
+	para "weak against your"
+	line "#MON's type."
+	done
+
+Route43_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  4, ROUTE_15_FUCHSIA_GATE, 3
-	warp_event  2,  5, ROUTE_15_FUCHSIA_GATE, 4
+	warp_event  9, 51, ROUTE_43_MAHOGANY_GATE, 1
+	warp_event 10, 51, ROUTE_43_MAHOGANY_GATE, 2
+	warp_event 17, 35, ROUTE_43_GATE, 3
+	warp_event 17, 31, ROUTE_43_GATE, 1
+	warp_event 18, 31, ROUTE_43_GATE, 2
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 19,  9, BGEVENT_READ, Route15Sign
+	bg_event  2,  3, BGEVENT_READ, Route43Sign1
+	bg_event 11, 49, BGEVENT_READ, Route43Sign2
+	bg_event 19, 28, BGEVENT_READ, Route43TrainerTips
 
 	def_object_events
-	object_event 10, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyKipp, -1
-	object_event 15, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyTommy, -1
-	object_event 33, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJohnny, -1
-	object_event 27, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
-	object_event 30, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherColette, -1
-	object_event 20, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
-	object_event 12,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15PPUp, EVENT_ROUTE_15_PP_UP
+	object_event  1,  9, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacBen, -1
+	object_event 16, 18, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacBrent, -1
+	object_event 14,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacRon, -1
+	object_event  4, 16, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerFisherMarvin, -1
+	object_event  4, 22, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTiffany, -1
+	object_event 16, 26, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperSpencer, -1
+	object_event  1, 26, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route43FruitTree, -1
+	object_event  3, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route43MaxEther, EVENT_ROUTE_43_MAX_ETHER
