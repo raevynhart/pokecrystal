@@ -1,22 +1,21 @@
 	object_const_def
 
 
-City6_MapScripts:
+Rest_Area_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_CITY6
+	setflag ENGINE_FLYPOINT_REST_AREA
 	endcallback
 
 
-City6_MapEvents:
+Rest_Area_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, C6_EAST_GATE, 1
 
 
 	def_coord_events

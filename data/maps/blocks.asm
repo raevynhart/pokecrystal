@@ -136,3 +136,5 @@ C2NorthGate_Blocks:
 C7NorthGate_Blocks:
 C7SouthGate_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
+
+SECTION "Map Blocks 3", ROMX

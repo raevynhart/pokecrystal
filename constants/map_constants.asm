@@ -35,115 +35,132 @@ ENDM
 ; - scripts and events (see data/maps/scripts.asm)
 	const_def
 
-	newgroup CITY1                                                ;  1
+	newgroup CITY_1                                               ;  1
 	map_const CITY_1,                                      10,  9 ;  1
 	map_const ROUTE_1,                                     20, 18 ;  2
 	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  3
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  4
+	map_const C1_NORTH_GATE,                                5,  4 ;  5
 	endgroup
 
-	newgroup CITY2                                                ;  2
+	newgroup CITY_2                                               ;  2
 	map_const CITY_2,                                      16, 11 ;  1
+	map_const C2_NORTH_GATE,                                5,  4 ;  2
+	map_const C2_EAST_GATE,                                 5,  4 ;  3
+	map_const C2_WEST_GATE,                                 5,  4 ;  4
 	endgroup
 
-	newgroup CITY3                                                ;  3
+	newgroup CITY_3                                               ;  3
 	map_const CITY_3,                                      20,  9 ;  1
 	map_const ROUTE_2,                                     40, 18 ;  2
 	map_const ROUTE_3,                                     30,  9 ;  3
-
 	endgroup
 
-	newgroup CITY4                                                ;  4
+	newgroup CITY_4                                               ;  4
 	map_const CITY_4,                                      14, 10 ;  1
 	map_const ROUTE_4,                                     10, 18 ;  2
 	endgroup
 
-	newgroup CITY5                                                ;  5
+	newgroup CITY_5                                               ;  5
 	map_const CITY_5,                                      12,  7 ;  1
 	map_const ROUTE_6,                                     10,  9 ;  1
 	map_const ROUTE_5,                                     10, 27 ;  2
 	endgroup
 
-	newgroup CITY6                                                ;  6
+	newgroup CITY_6                                               ;  6
 	map_const CITY_6,                                       7,  6 ;  1
 	map_const ROUTE_8,                                     10,  9 ;  2
+	map_const C6_EAST_GATE,                                 5,  4 ;  3
 	endgroup
 
-	newgroup CITY7                                                ;  7
+	newgroup CITY_7                                               ;  7
 	map_const CITY_7,                                      20, 14 ;  1
 	map_const ROUTE_11,                                    30,  9 ;  2
 	map_const ROUTE_12,                                    10,  9 ;  3
+	map_const C7_NORTH_GATE,                                5,  4 ;  4
+	map_const C7_SOUTH_GATE,                                5,  4 ;  5
 	endgroup
 
-	newgroup CITY8                                                ;  8
+	newgroup CITY_8                                               ;  8
 	map_const CITY_8,                                      10,  8 ;  1
 	map_const ROUTE_13,                                    10,  9 ;  2
 	map_const ROUTE_14,                                    30,  9 ;  3
 	endgroup
 
-	newgroup CITY9                                                ;  9
+	newgroup CITY_9                                               ;  9
 	map_const CITY_9,                                       9, 10 ;  1
 	map_const ROUTE_15,                                    10, 18 ;  2
-
 	endgroup
 
-	newgroup CITY10                                               ; 10
+	newgroup CITY_10                                              ; 10
 	map_const CITY_10,                                     13,  7 ;  1
 	map_const ROUTE_16,                                    40,  9 ;  2
 	map_const ROUTE_17,                                    10,  9 ;  3
 	endgroup
 
-	newgroup SPECIAL1                                             ; 11
+	newgroup SPECIAL_1                                            ; 11
+	map_const SPECIAL_1,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL2                                             ; 12
+	newgroup SPECIAL_2                                            ; 12
+	map_const SPECIAL_2,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL3                                             ; 13
+	newgroup SPECIAL_3                                            ; 13
+	map_const SPECIAL_3,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL4                                             ; 14
+	newgroup SPECIAL_4                                            ; 14
+	map_const SPECIAL_4,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL5                                             ; 15
+	newgroup SPECIAL_5                                            ; 15
+	map_const SPECIAL_5,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL6                                             ; 16
+	newgroup SPECIAL_6                                            ; 16
+	map_const SPECIAL_6,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL7                                             ; 17
+	newgroup SPECIAL_7                                            ; 17
+	map_const SPECIAL_7,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL8                                             ; 18
+	newgroup SPECIAL_8                                            ; 18
+	map_const SPECIAL_8,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL9                                             ; 19
+	newgroup SPECIAL_9                                            ; 19
+	map_const SPECIAL_9,                                   10,  9 ;  1
 	endgroup
 
-	newgroup SPECIAL10                                            ; 20
+	newgroup SPECIAL_10                                           ; 20
+	map_const SPECIAL_10,                                  10,  9 ;  1
 	endgroup
 
 	newgroup SHIP                                                 ; 21
+	map_const SHIP_PLAYERS_CABIN,                           5,  4 ;  1
 	endgroup
 
 	newgroup ISLAND                                               ; 22
+	map_const ISLAND,                                      10,  9 ;  1
 	endgroup
 
-	newgroup MISC1                                                ; 23
+	newgroup MISC_1                                               ; 23
 	map_const ROUTE_6_CAVE,                                20,  9 ;  1
 	map_const ROUTE_7,                                     10, 27 ;  2
 	map_const ROUTE_9,                                     50,  9 ;  3
 	map_const ROUTE_10,                                    40, 18 ;  4
-
+	map_const REST_AREA,                                   10,  9 ;  5
 	endgroup
 
-	newgroup MISC2                                                ; 24
+	newgroup MISC_2                                               ; 24
 	endgroup
 
-	newgroup MISC3                                                ; 25
+	newgroup MISC_3                                               ; 25
 	endgroup
 
-	newgroup MISC4                                                ; 26
+	newgroup MISC_4                                               ; 26
 	endgroup
 
 

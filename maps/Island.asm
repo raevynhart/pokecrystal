@@ -1,17 +1,17 @@
 	object_const_def
 
 
-C2NorthGate_MapScripts:
+Island_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
 
-C2NorthGate_MapEvents:
+Island_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  5, CITY_2, 2
+
 
 	def_coord_events
 

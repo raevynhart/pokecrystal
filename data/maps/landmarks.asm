@@ -48,7 +48,6 @@ Landmarks:
 	landmark  84, 100, Special10Name
 	landmark  12,  36, ShipName
 	assert_table_length KANTO_LANDMARK
-	landmark  52, 108, ShipName
 	landmark  52,  92, IslandName
 	landmark  52,  76, Gym1Name
 	landmark  52,  64, Gym2Name

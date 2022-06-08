@@ -22,12 +22,12 @@ StdScripts::
 	add_stdscript SmashRockScript
 	add_stdscript PokecenterSignScript
 	add_stdscript MartSignScript
-	add_stdscript GoldenrodRocketsScript
-	add_stdscript RadioTowerRocketsScript
+	; add_stdscript GoldenrodRocketsScript
+	; add_stdscript RadioTowerRocketsScript
 	add_stdscript ElevatorButtonScript
 	add_stdscript DayToTextScript
-	add_stdscript BugContestResultsWarpScript
-	add_stdscript BugContestResultsScript
+	; add_stdscript BugContestResultsWarpScript
+	; add_stdscript BugContestResultsScript
 	add_stdscript InitializeEventsScript
 	add_stdscript AskNumber1MScript
 	add_stdscript AskNumber2MScript
@@ -52,7 +52,7 @@ StdScripts::
 	add_stdscript GymStatue1Script
 	add_stdscript GymStatue2Script
 	add_stdscript ReceiveItemScript
-	add_stdscript ReceiveTogepiEggScript
+;	add_stdscript ReceiveTogepiEggScript
 	add_stdscript PCScript
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
@@ -290,57 +290,57 @@ DayToTextScript:
 .SaturdayText:
 	db "SATURDAY@"
 
-GoldenrodRocketsScript:
-	clearevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
-	end
+; GoldenrodRocketsScript:
+; 	clearevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
+;	end
 
-RadioTowerRocketsScript:
-	setflag ENGINE_ROCKETS_IN_RADIO_TOWER
-	setevent EVENT_GOLDENROD_CITY_CIVILIANS
-	setevent EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
-	clearevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	clearevent EVENT_USED_THE_CARD_KEY_IN_THE_RADIO_TOWER
-	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
-	specialphonecall SPECIALCALL_WEIRDBROADCAST
-	setmapscene MAHOGANY_TOWN, SCENE_FINISHED
-	end
+; RadioTowerRocketsScript:
+;	setflag ENGINE_ROCKETS_IN_RADIO_TOWER
+;	setevent EVENT_GOLDENROD_CITY_CIVILIANS
+;	setevent EVENT_RADIO_TOWER_BLACKBELT_BLOCKS_STAIRS
+;	clearevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+;	clearevent EVENT_USED_THE_CARD_KEY_IN_THE_RADIO_TOWER
+;	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
+;	specialphonecall SPECIALCALL_WEIRDBROADCAST
+;	setmapscene MAHOGANY_TOWN, SCENE_FINISHED
+;	end
 
-BugContestResultsWarpScript:
-	special ClearBGPalettes
-	scall BugContestResults_CopyContestantsToResults
-	setevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
-	clearevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
-	setevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
-	warp ROUTE_36_NATIONAL_PARK_GATE, 0, 4
-	applymovement PLAYER, Movement_ContestResults_WalkAfterWarp
+; BugContestResultsWarpScript:
+;	special ClearBGPalettes
+;	scall BugContestResults_CopyContestantsToResults
+;	setevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
+;	clearevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
+;	setevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
+;	warp ROUTE_36_NATIONAL_PARK_GATE, 0, 4
+;	applymovement PLAYER, Movement_ContestResults_WalkAfterWarp
 
-BugContestResultsScript:
-	clearflag ENGINE_BUG_CONTEST_TIMER
-	clearevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
-	clearevent EVENT_CONTEST_OFFICER_HAS_SUN_STONE
-	clearevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
-	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
-	clearevent EVENT_CONTEST_OFFICER_HAS_BERRY
-	opentext
-	farwritetext ContestResults_ReadyToJudgeText
-	waitbutton
-	special BugContestJudging
-	getnum STRING_BUFFER_3
-	ifequal 1, BugContestResults_FirstPlace
-	ifequal 2, BugContestResults_SecondPlace
-	ifequal 3, BugContestResults_ThirdPlace
-	farwritetext ContestResults_ConsolationPrizeText
-	promptbutton
-	waitsfx
-	verbosegiveitem BERRY
-	iffalse BugContestResults_NoRoomForBerry
+; BugContestResultsScript:
+;	clearflag ENGINE_BUG_CONTEST_TIMER
+;	clearevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
+;	clearevent EVENT_CONTEST_OFFICER_HAS_SUN_STONE
+;	clearevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
+;	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
+;	clearevent EVENT_CONTEST_OFFICER_HAS_BERRY
+;	opentext
+;	farwritetext ContestResults_ReadyToJudgeText
+;	waitbutton
+;	special BugContestJudging
+;	getnum STRING_BUFFER_3
+;	ifequal 1, BugContestResults_FirstPlace
+;	ifequal 2, BugContestResults_SecondPlace
+;	ifequal 3, BugContestResults_ThirdPlace
+;	farwritetext ContestResults_ConsolationPrizeText
+;	promptbutton
+;	waitsfx
+;	verbosegiveitem BERRY
+;	iffalse BugContestResults_NoRoomForBerry
 
-BugContestResults_DidNotWin:
+ BugContestResults_DidNotWin:
 	farwritetext ContestResults_DidNotWinText
 	promptbutton
 	sjump BugContestResults_FinishUp
 
-BugContestResults_ReturnAfterWinnersPrize:
+ BugContestResults_ReturnAfterWinnersPrize:
 	farwritetext ContestResults_JoinUsNextTimeText
 	promptbutton
 
@@ -357,33 +357,33 @@ BugContestResults_DidNotLeaveMons:
 	; BUGCONTEST_BOXED_MON
 	farwritetext ContestResults_PartyFullText
 	waitbutton
-BugContestResults_CleanUp:
-	closetext
-	setscene SCENE_ROUTE36NATIONALPARKGATE_NOTHING
-	setmapscene ROUTE_35_NATIONAL_PARK_GATE, SCENE_ROUTE35NATIONALPARKGATE_NOTHING
-	setevent EVENT_BUG_CATCHING_CONTESTANT_1A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_2A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_3A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_4A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_5A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_6A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_7A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_8A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_9A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_10A
-	setevent EVENT_BUG_CATCHING_CONTESTANT_1B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_2B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_3B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_4B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_5B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_6B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_7B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_8B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_9B
-	setevent EVENT_BUG_CATCHING_CONTESTANT_10B
-	setflag ENGINE_DAILY_BUG_CONTEST
-	special PlayMapMusic
-	end
+; BugContestResults_CleanUp:
+;	closetext
+;	setscene SCENE_ROUTE36NATIONALPARKGATE_NOTHING
+;	setmapscene ROUTE_35_NATIONAL_PARK_GATE, SCENE_ROUTE35NATIONALPARKGATE_NOTHING
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_1A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_2A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_3A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_4A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_5A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_6A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_7A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_8A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_9A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_10A
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_1B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_2B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_3B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_4B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_5B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_6B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_7B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_8B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_9B
+;	setevent EVENT_BUG_CATCHING_CONTESTANT_10B
+;	setflag ENGINE_DAILY_BUG_CONTEST
+;	special PlayMapMusic
+;	end
 
 BugContestResults_FirstPlace:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

@@ -73,22 +73,21 @@ NUM_FISHGROUPS EQU const_value - 1
 ; SpawnPoints indexes (see data/maps/spawn_points.asm)
 	const_def
 	const SPAWN_HOME
-	const SPAWN_DEBUG
+
 ; kanto
 	const SPAWN_ISLAND
-	const SPAWN_SHIP
 ; johto
-	const SPAWN_CITY1
-	const SPAWN_CITY2
-	const SPAWN_CITY3
-	const SPAWN_CITY4
-	const SPAWN_CITY5
-	const SPAWN_CITY6
+	const SPAWN_CITY_1
+	const SPAWN_CITY_2
+	const SPAWN_CITY_3
+	const SPAWN_CITY_4
+	const SPAWN_CITY_5
+	const SPAWN_CITY_6
 	const SPAWN_REST_AREA
-	const SPAWN_CITY7
-	const SPAWN_CITY8
-	const SPAWN_CITY9
-	const SPAWN_CITY10
+	const SPAWN_CITY_7
+	const SPAWN_CITY_8
+	const SPAWN_CITY_9
+	const SPAWN_CITY_10
 	const SPAWN_SHIP
 NUM_SPAWNS EQU const_value
 
@@ -110,4 +109,4 @@ JOHTO_FLYPOINT EQU const_value
 	const FLY_CITY9
 	const FLY_CITY10
 
-MAX_OUTDOOR_SPRITES EQU 23 ; see engine/overworld/overworld.asm
+
