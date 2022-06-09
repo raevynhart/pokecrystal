@@ -97,7 +97,7 @@ ENDM
 
 
 	map_attributes City1, CITY_1, $05, EAST
-	connection east, Route1, ROUTE_1, 11
+	connection east, Route1, ROUTE_1, 0
 
 	map_attributes City3, CITY_3, $05, WEST | EAST
 	connection west, Route2, ROUTE_2, -1
@@ -120,7 +120,7 @@ ENDM
 	connection west, Route16, ROUTE_16, 9
 
 	map_attributes Route1, ROUTE_1, $0f, WEST
-	connection west, City1, CITY_1, -10
+	connection west, City1, CITY_1, 0
 
 	map_attributes Route2, ROUTE_2, $0f, EAST
 	connection east, City3, CITY_3, -5
