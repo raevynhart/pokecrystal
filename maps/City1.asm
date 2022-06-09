@@ -16,8 +16,8 @@ City1_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, PLAYERS_HOUSE_1F, 1
-	warp_event 13,  5, C1_NORTH_GATE, 1
+	warp_event  9,  5, PLAYERS_HOUSE_1F, 1
+	warp_event 13,  3, C1_NORTH_GATE, 1
 
 	def_coord_events
 

@@ -387,8 +387,8 @@ PlayersHouse1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, CITY_1, 2
-	warp_event  7,  7, CITY_1, 2
+	warp_event  6,  7, CITY_1, 1
+	warp_event  7,  7, CITY_1, 1
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events
