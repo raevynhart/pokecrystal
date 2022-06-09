@@ -130,7 +130,7 @@ Pokegear_LoadGFX:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .ssaqua
 	farcall GetPlayerIcon
 	push de
@@ -210,7 +210,7 @@ TownMap_InitCursorAndPlayerIconPositions:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .FastShip
 	cp LANDMARK_SPECIAL
 	jr nz, .LoadLandmark
@@ -226,7 +226,7 @@ TownMap_InitCursorAndPlayerIconPositions:
 
 .FastShip:
 	ld [wPokegearMapPlayerIconLandmark], a
-	ld a, LANDMARK_NEW_BARK_TOWN
+	ld a, LANDMARK_CITY_1
 	ld [wPokegearMapCursorLandmark], a
 	ret
 
@@ -324,7 +324,7 @@ InitPokegearTilemap:
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .johto
 	cp KANTO_LANDMARK
 	jr nc, .kanto
@@ -530,7 +530,7 @@ Pokegear_UpdateClock:
 
 PokegearMap_CheckRegion:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .johto
 	cp KANTO_LANDMARK
 	jr nc, .kanto
@@ -565,8 +565,8 @@ PokegearMap_KantoMap:
 	jr PokegearMap_ContinueMap
 
 PokegearMap_JohtoMap:
-	ld d, LANDMARK_SILVER_CAVE
-	ld e, LANDMARK_NEW_BARK_TOWN
+	ld d, LANDMARK_SPECIAL_10
+	ld e, LANDMARK_CITY_1
 PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]
@@ -728,13 +728,13 @@ TownMap_GetKantoLandmarkLimits:
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_HALL_OF_FAME_F, a
 	jr z, .not_hof
-	ld d, LANDMARK_ROUTE_28
-	ld e, LANDMARK_PALLET_TOWN
+	ld d, LANDMARK_ISLAND
+	ld e, LANDMARK_ISLAND
 	ret
 
 .not_hof
-	ld d, LANDMARK_ROUTE_28
-	ld e, LANDMARK_VICTORY_ROAD
+	ld d, LANDMARK_ISLAND
+	ld e, LANDMARK_ISLAND
 	ret
 
 PokegearRadio_Init:
@@ -1489,7 +1489,7 @@ RadioChannels:
 
 .RuinsOfAlphRadio:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_RUINS_OF_ALPH
+	cp LANDMARK_REST_AREA
 	jr nz, .NoSignal
 	jp LoadStation_UnownRadio
 
@@ -1523,11 +1523,11 @@ RadioChannels:
 	bit STATUSFLAGS_ROCKET_SIGNAL_F, a
 	jr z, .NoSignal
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_MAHOGANY_TOWN
+	cp LANDMARK_CITY_8
 	jr z, .ok
-	cp LANDMARK_ROUTE_43
+	cp LANDMARK_ROUTE_4
 	jr z, .ok
-	cp LANDMARK_LAKE_OF_RAGE
+	cp LANDMARK_SPECIAL_2
 	jr nz, .NoSignal
 .ok
 	jp LoadStation_EvolutionRadio
@@ -1540,7 +1540,7 @@ RadioChannels:
 ; if in Johto or on the S.S. Aqua, set carry
 ; otherwise clear carry
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .johto
 	cp KANTO_LANDMARK
 	jr c, .johto
@@ -2291,7 +2291,7 @@ FlyMap:
 ; enters Kanto, fly access is restricted until Indigo Plateau is
 ; visited and its flypoint enabled.
 	push af
-	ld c, SPAWN_INDIGO
+	ld c, SPAWN_ISLAND
 	call HasVisitedSpawn
 	and a
 	jr z, .NoKanto
@@ -2566,7 +2566,7 @@ Pokedex_GetArea:
 ; not in the same region as what's currently
 ; on the screen.
 	ld a, [wTownMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .johto
 	cp KANTO_LANDMARK
 	jr c, .johto
@@ -2594,7 +2594,7 @@ Pokedex_GetArea:
 
 .GetPlayerOrFastShipIcon:
 	ld a, [wTownMapPlayerIconLandmark]
-	cp LANDMARK_FAST_SHIP
+	cp LANDMARK_SHIP
 	jr z, .FastShip
 	farcall GetPlayerIcon
 	ret

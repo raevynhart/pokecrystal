@@ -14,7 +14,7 @@ GavenPhoneCalleeScript:
 	farsjump GavenHangUpNotThursdayScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_6
 	farsjump GavenReminderScript
 
 GavenPhoneCallerScript:
@@ -36,7 +36,7 @@ GavenThursdayMorningScript:
 	setflag ENGINE_GAVEN_THURSDAY_MORNING
 
 GavenWantsRematch:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_6
 	setflag ENGINE_GAVEN_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 

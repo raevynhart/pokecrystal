@@ -283,8 +283,8 @@ FlashFunction:
 	farcall CheckBadge
 	jr c, .nozephyrbadge
 	push hl
-	farcall SpecialAerodactylChamber
-	pop hl
+;	farcall SpecialAerodactylChamber
+;	pop hl
 	jr c, .useflash
 	ld a, [wTimeOfDayPalset]
 	cp DARKNESS_PALSET
@@ -808,8 +808,8 @@ EscapeRopeOrDig:
 	ret
 
 .escaperope
-	farcall SpecialKabutoChamber
-	ld hl, .UsedEscapeRopeScript
+;	farcall SpecialKabutoChamber
+;	ld hl, .UsedEscapeRopeScript
 	call QueueScript
 	ld a, $81
 	ret

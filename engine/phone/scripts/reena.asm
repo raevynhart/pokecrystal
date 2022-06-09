@@ -14,7 +14,7 @@ ReenaPhoneCalleeScript:
 	farsjump ReenaForwardScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	farsjump ReenaHurryScript
 
 ReenaPhoneCallerScript:
@@ -34,6 +34,6 @@ ReenaSundayMorning:
 	setflag ENGINE_REENA_SUNDAY_MORNING
 
 ReenaWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	setflag ENGINE_REENA_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Female

@@ -14,7 +14,7 @@ JackPhoneCalleeScript:
 	farsjump JackPhoneTipsScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
+	getlandmarkname STRING_BUFFER_5, LANDMARK_REST_AREA
 	farsjump JackWantsBattleScript
 
 JackPhoneCallerScript:
@@ -38,7 +38,7 @@ JackMondayMorning:
 	setflag ENGINE_JACK_MONDAY_MORNING
 
 JackWantsToBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
+	getlandmarkname STRING_BUFFER_5, LANDMARK_REST_AREA
 	setflag ENGINE_JACK_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 

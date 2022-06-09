@@ -16,11 +16,11 @@ JosePhoneCalleeScript:
 	farsjump JoseHangUpScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	farsjump JoseReminderScript
 
 .HasItem:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	farsjump JoseReminderScript
 
 JosePhoneCallerScript:
@@ -46,7 +46,7 @@ JoseSaturdayNight:
 	setflag ENGINE_JOSE_SATURDAY_NIGHT
 
 JoseWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	setflag ENGINE_JOSE_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
@@ -55,5 +55,5 @@ JoseFoundRare:
 
 JoseHasStarPiece:
 	setflag ENGINE_JOSE_HAS_STAR_PIECE
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_7
 	farsjump PhoneScript_FoundItem_Male

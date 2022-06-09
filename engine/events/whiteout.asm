@@ -12,8 +12,8 @@ Script_Whiteout:
 	special FadeOutPalettes
 	pause 40
 	special HealParty
-	checkflag ENGINE_BUG_CONTEST_TIMER
-	iftrue .bug_contest
+;	checkflag ENGINE_BUG_CONTEST_TIMER
+;	iftrue .bug_contest
 	callasm HalveMoney
 	callasm GetWhiteoutSpawn
 	farscall Script_AbortBugContest
@@ -22,7 +22,7 @@ Script_Whiteout:
 	endall
 
 .bug_contest
-	jumpstd BugContestResultsWarpScript
+;	jumpstd BugContestResultsWarpScript
 
 .WhitedOutText:
 	text_far _WhitedOutText

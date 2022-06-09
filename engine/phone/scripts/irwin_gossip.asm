@@ -7,7 +7,7 @@ IrwinRumorScript:
 	iftrue .TrainPass
 	checkflag ENGINE_MARSHBADGE
 	iftrue .MarshBadge
-	checkflag ENGINE_FLYPOINT_VERMILION
+	checkflag ENGINE_FLYPOINT_CITY_2
 	iftrue .VermilionCity
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .EliteFour

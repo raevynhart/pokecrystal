@@ -56,6 +56,7 @@ Landmarks:
 	landmark  76,  52, EliteHallName
 	assert_table_length NUM_LANDMARKS
 
+SpecialMapName:      db "SPECIAL@"
 City1Name:           db "NEW BARK¯TOWN@"
 City2Name:           db "CHERRYGROVE¯CITY@"
 City3Name:           db "VIOLET CITY@"

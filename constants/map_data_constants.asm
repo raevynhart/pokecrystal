@@ -88,7 +88,7 @@ NUM_FISHGROUPS EQU const_value - 1
 	const SPAWN_CITY_8
 	const SPAWN_CITY_9
 	const SPAWN_CITY_10
-	const SPAWN_SHIP
+	const SPAWN_SHIP_PLAYERS_CABIN
 NUM_SPAWNS EQU const_value
 
 SPAWN_N_A EQU -1
@@ -108,5 +108,8 @@ JOHTO_FLYPOINT EQU const_value
 	const FLY_CITY8
 	const FLY_CITY9
 	const FLY_CITY10
-
+; kanto
+KANTO_FLYPOINT EQU const_value
+	const FLY_ISLAND
+DEF NUM_FLYPOINTS EQU const_value
 

@@ -127,7 +127,7 @@ INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
 SECTION "bankA", ROMX
 
 INCLUDE "engine/link/link.asm"
-; INCLUDE "engine/overworld/wildmons.asm"
+INCLUDE "engine/overworld/wildmons.asm"
 INCLUDE "engine/battle/link_result.asm"
 
 
@@ -235,9 +235,9 @@ SECTION "bank14", ROMX
 INCLUDE "engine/pokemon/party_menu.asm"
 INCLUDE "engine/events/poisonstep.asm"
 INCLUDE "engine/events/sweet_scent.asm"
-INCLUDE "engine/events/squirtbottle.asm"
-INCLUDE "engine/events/card_key.asm"
-INCLUDE "engine/events/basement_key.asm"
+;INCLUDE "engine/events/squirtbottle.asm"
+;INCLUDE "engine/events/card_key.asm"
+;INCLUDE "engine/events/basement_key.asm"
 INCLUDE "engine/events/sacred_ash.asm"
 INCLUDE "engine/pokemon/tempmon.asm"
 INCLUDE "engine/pokemon/types.asm"
@@ -293,7 +293,7 @@ SECTION "Crystal Features 2", ROMX
 INCLUDE "engine/events/kurt.asm"
 INCLUDE "engine/gfx/player_gfx.asm"
 INCLUDE "mobile/mobile_22.asm"
-INCLUDE "engine/events/unown_walls.asm"
+;INCLUDE "engine/events/unown_walls.asm"
 INCLUDE "engine/events/buena.asm"
 INCLUDE "engine/events/dratini.asm"
 INCLUDE "engine/events/battle_tower/rules.asm"
@@ -361,7 +361,7 @@ SECTION "bank2E", ROMX
 
 INCLUDE "engine/events/map_name_sign.asm"
 INCLUDE "engine/events/checkforhiddenitems.asm"
-; INCLUDE "engine/events/treemons.asm"
+INCLUDE "engine/events/treemons.asm"
 INCLUDE "engine/events/fishing_gfx.asm"
 INCLUDE "engine/pokegear/radio.asm"
 INCLUDE "engine/pokemon/mail_2.asm"

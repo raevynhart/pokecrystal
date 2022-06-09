@@ -3,7 +3,7 @@
 SwarmGrassWildMons:
 
 ; Dunsparce swarm
-	map_id DARK_CAVE_VIOLET_ENTRANCE
+	map_id ROUTE_1
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, GEODUDE
@@ -31,7 +31,7 @@ SwarmGrassWildMons:
 	db 4, DUNSPARCE
 
 ; Yanma swarm
-	map_id ROUTE_35
+	map_id ROUTE_2
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 12, NIDORAN_M

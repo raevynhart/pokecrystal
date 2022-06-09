@@ -8,7 +8,7 @@ City6_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_CITY6
+	setflag ENGINE_FLYPOINT_CITY_6
 	endcallback
 
 

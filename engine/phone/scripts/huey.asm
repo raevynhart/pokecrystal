@@ -15,7 +15,7 @@ HueyPhoneCalleeScript:
 	farsjump HueyHangUpScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ISLAND
 	farsjump HueyWantsBattleScript
 
 HueyPhoneCallerScript:
@@ -36,6 +36,6 @@ HueyWednesdayNight:
 	setflag ENGINE_HUEY_WEDNESDAY_NIGHT
 
 HueyWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ISLAND
 	setflag ENGINE_HUEY_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male

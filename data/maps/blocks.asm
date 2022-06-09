@@ -87,6 +87,9 @@ Route5_Blocks:
 Route6_Blocks:
 	INCBIN "maps/Route6.blk"
 
+Route6Cave_Blocks:
+	INCBIN "maps/Route6Cave.blk"
+
 Route7_Blocks:
 	INCBIN "maps/Route7.blk"
 
@@ -137,4 +140,14 @@ C7NorthGate_Blocks:
 C7SouthGate_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
 
+
 SECTION "Map Blocks 3", ROMX
+
+RestArea_Blocks:
+	INCBIN "maps/RestArea.blk"
+
+ShipPlayersCabin_Blocks:
+	INCBIN "maps/ShipPlayersCabin.blk"
+
+Island_Blocks:
+	INCBIN "maps/Island.blk"

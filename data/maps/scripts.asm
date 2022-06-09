@@ -91,43 +91,53 @@ SECTION "Map Scripts 16", ROMX
 
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/Route2.asm"
+INCLUDE "maps/Route3.asm"
 
 
 SECTION "Map Scripts 17", ROMX
 
-INCLUDE "maps/Route3.asm"
 INCLUDE "maps/Route4.asm"
-
-
-SECTION "Map Scripts 18", ROMX
-
 INCLUDE "maps/Route5.asm"
 INCLUDE "maps/Route6.asm"
 INCLUDE "maps/Route6Cave.asm"
 
 
-SECTION "Map Scripts 19", ROMX
+SECTION "Map Scripts 18", ROMX
 
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/Route8.asm"
+INCLUDE "maps/Route9.asm"
+
+
+SECTION "Map Scripts 19", ROMX
+
+INCLUDE "maps/Route10.asm"
+INCLUDE "maps/Route11.asm"
+INCLUDE "maps/Route12.asm"
 
 
 SECTION "Map Scripts 20", ROMX
 
-INCLUDE "maps/Route9.asm"
-INCLUDE "maps/Route10.asm"
+INCLUDE "maps/Route13.asm"
+INCLUDE "maps/Route14.asm"
+INCLUDE "maps/Route15.asm"
 
 
 SECTION "Map Scripts 21", ROMX
 
+INCLUDE "maps/Route16.asm"
+INCLUDE "maps/Route17.asm"
+INCLUDE "maps/RestArea.asm"
 
 
 SECTION "Map Scripts 22", ROMX
 
+INCLUDE "maps/Island.asm"
 
 
 SECTION "Map Scripts 23", ROMX
 
+INCLUDE "maps/ShipPlayersCabin.asm"
 
 
 SECTION "Map Scripts 24", ROMX

@@ -14,7 +14,7 @@ ErinPhoneCalleeScript:
 	farsjump ErinWorkingHardScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_46
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_6
 	farsjump ErinComeBattleScript
 
 ErinPhoneCallerScript:
@@ -35,6 +35,6 @@ ErinSaturdayNight:
 	setflag ENGINE_ERIN_SATURDAY_NIGHT
 
 ErinWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_46
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_6
 	setflag ENGINE_ERIN_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Female

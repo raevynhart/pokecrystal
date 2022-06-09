@@ -140,13 +140,13 @@ ItemEffects:
 	dw RevivalHerbEffect   ; REVIVAL_HERB
 	dw NoEffect            ; HARD_STONE
 	dw NoEffect            ; LUCKY_EGG
-	dw CardKeyEffect       ; CARD_KEY
+	dw NoEffect            ; CARD_KEY
 	dw NoEffect            ; MACHINE_PART
 	dw NoEffect            ; EGG_TICKET
 	dw NoEffect            ; LOST_ITEM
 	dw NoEffect            ; STARDUST
 	dw NoEffect            ; STAR_PIECE
-	dw BasementKeyEffect   ; BASEMENT_KEY
+	dw NoEffect            ; BASEMENT_KEY
 	dw NoEffect            ; PASS
 	dw NoEffect            ; ITEM_87
 	dw NoEffect            ; ITEM_88
@@ -188,7 +188,7 @@ ItemEffects:
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
-	dw SquirtbottleEffect  ; SQUIRTBOTTLE
+	dw NoEffect            ; SQUIRTBOTTLE
 	dw NoEffect            ; ITEM_B0
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
@@ -2554,17 +2554,17 @@ PPRestoredText:
 	text_far _PPRestoredText
 	text_end
 
-SquirtbottleEffect:
-	farcall _Squirtbottle
-	ret
+;SquirtbottleEffect:
+;	farcall _Squirtbottle
+;	ret
 
-CardKeyEffect:
-	farcall _CardKey
-	ret
+;CardKeyEffect:
+;	farcall _CardKey
+;	ret
 
-BasementKeyEffect:
-	farcall _BasementKey
-	ret
+;BasementKeyEffect:
+;	farcall _BasementKey
+;	ret
 
 SacredAshEffect:
 	farcall _SacredAsh

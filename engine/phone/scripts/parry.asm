@@ -14,7 +14,7 @@ ParryPhoneCalleeScript:
 	farsjump ParryBattleWithMeScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_45
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_5
 	farsjump ParryHaventYouGottenToScript
 
 ParryPhoneCallerScript:
@@ -35,6 +35,6 @@ ParryFridayDay:
 	setflag ENGINE_PARRY_FRIDAY_AFTERNOON
 
 ParryWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_45
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_5
 	setflag ENGINE_PARRY_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male

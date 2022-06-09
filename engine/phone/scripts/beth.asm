@@ -14,7 +14,7 @@ BethPhoneCalleeScript:
 	farsjump BethHangUpScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
 	farsjump BethBattleReminderScript
 
 BethPhoneCallerScript:
@@ -34,6 +34,6 @@ BethFridayAfternoon:
 	setflag ENGINE_BETH_FRIDAY_AFTERNOON
 
 BethWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
 	setflag ENGINE_BETH_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Female

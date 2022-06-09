@@ -98,18 +98,10 @@ ENDM
 
 	map_attributes City1, CITY_1, $05, EAST
 	connection east, Route1, ROUTE_1, 11
-	map_attributes C1NorthGate, C1_NORTH_GATE, $35, 0
-
-	map_attributes City2, CITY_2, $35, 0
-	map_attributes C2NorthGate, C2_NORTH_GATE, $35, 0
-	map_attributes C2EastGate, C2_EAST_GATE, $35, 0
-	map_attributes C2WestGate, C2_WEST_GATE, $35, 0
 
 	map_attributes City3, CITY_3, $05, WEST | EAST
 	connection west, Route2, ROUTE_2, -1
 	connection east, Route3, ROUTE_3, 9
-
-	map_attributes City4, CITY_4, $05, 0
 
 	map_attributes City5, CITY_5, $35, WEST | EAST
 	connection west, Route5, ROUTE_5, 0
@@ -118,17 +110,10 @@ ENDM
 	map_attributes City6, CITY_6, $35, WEST | EAST
 	connection west, Route8, ROUTE_8, 5
 	connection east, Special6, SPECIAL_6, 5
-	map_attributes C6EastGate, C6_EAST_GATE, $35, 0
-
-	map_attributes City7, CITY_7, $35, 0
-	map_attributes C7NorthGate, C7_NORTH_GATE, $35, 0
-	map_attributes C7SouthGate, C7_SOUTH_GATE, $35, 0
 
 	map_attributes City8, CITY_8, $05, NORTH | SOUTH
 	connection north, Route13, ROUTE_13, 5
 	connection south, Route14, ROUTE_14, 5
-
-	map_attributes City9, CITY_9, $71, 0
 
 	map_attributes City10, CITY_10, $71, NORTH | WEST
 	connection north, Route17, ROUTE_17, 0
@@ -198,6 +183,17 @@ ENDM
 	connection south, Route4, ROUTE_4, 0
 	connection west, Route3, ROUTE_3, 0
 
+	map_attributes C1NorthGate, C1_NORTH_GATE, $35, 0
+	map_attributes City2, CITY_2, $35, 0
+	map_attributes C2NorthGate, C2_NORTH_GATE, $35, 0
+	map_attributes C2EastGate, C2_EAST_GATE, $35, 0
+	map_attributes C2WestGate, C2_WEST_GATE, $35, 0
+	map_attributes City4, CITY_4, $05, 0
+	map_attributes C6EastGate, C6_EAST_GATE, $35, 0
+	map_attributes City7, CITY_7, $35, 0
+	map_attributes C7NorthGate, C7_NORTH_GATE, $35, 0
+	map_attributes C7SouthGate, C7_SOUTH_GATE, $35, 0
+	map_attributes City9, CITY_9, $71, 0
 	map_attributes Special1, SPECIAL_1, $43, 0
 	map_attributes Special2, SPECIAL_2, $43, 0
 	map_attributes Special4, SPECIAL_4, $43, 0
@@ -207,6 +203,8 @@ ENDM
 	map_attributes Special8, SPECIAL_8, $43, 0
 	map_attributes Special9, SPECIAL_9, $43, 0
 	map_attributes Special10, SPECIAL_10, $43, 0
-
+	map_attributes RestArea, REST_AREA, $00, 0
+	map_attributes ShipPlayersCabin, SHIP_PLAYERS_CABIN, $00, 0
 	map_attributes PlayersHouse1F, PLAYERS_HOUSE_1F, $00, 0
 	map_attributes PlayersHouse2F, PLAYERS_HOUSE_2F, $00, 0
+	map_attributes Island, ISLAND, $2c, 0

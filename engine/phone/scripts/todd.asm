@@ -16,7 +16,7 @@ ToddPhoneCalleeScript:
 	farsjump ToddNoItemScript
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_4
 	farsjump ToddForwardScript
 
 .SaleOn:
@@ -29,7 +29,7 @@ ToddPhoneCallerScript:
 	iftrue .TryForSale
 	checkflag ENGINE_TODD_SATURDAY_MORNING
 	iftrue .TryForSale
-	checkflag ENGINE_FLYPOINT_GOLDENROD
+	checkflag ENGINE_FLYPOINT_CITY_5
 	iffalse .NoGoldenrod
 	farscall PhoneScript_Random2
 	ifequal 0, ToddWantsBattle
@@ -47,7 +47,7 @@ ToddSaturdayMorning:
 	setflag ENGINE_TODD_SATURDAY_MORNING
 
 ToddWantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_4
 	setflag ENGINE_TODD_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 

@@ -1,11 +1,11 @@
 _CardKey:
 ; Are we even in the right map to use this?
 	ld a, [wMapGroup]
-	cp GROUP_RADIO_TOWER_3F
+	cp GROUP_CITY_1
 	jr nz, .nope
 
 	ld a, [wMapNumber]
-	cp MAP_RADIO_TOWER_3F
+	cp MAP_CITY_1
 	jr nz, .nope
 ; Are we facing the slot?
 	ld a, [wPlayerDirection]

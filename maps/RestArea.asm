@@ -1,7 +1,7 @@
 	object_const_def
 
 
-Rest_Area_MapScripts:
+RestArea_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -12,7 +12,7 @@ Rest_Area_MapScripts:
 	endcallback
 
 
-Rest_Area_MapEvents:
+RestArea_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
