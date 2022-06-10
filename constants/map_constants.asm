@@ -51,7 +51,7 @@ ENDM
 	endgroup
 
 	newgroup CITY_3                                               ;  3
-	map_const CITY_3,                                      20,  9 ;  1
+	map_const CITY_3,                                      10,  18 ;  1
 	map_const ROUTE_2,                                     40, 18 ;  2
 	map_const ROUTE_3,                                     30,  9 ;  3
 	endgroup

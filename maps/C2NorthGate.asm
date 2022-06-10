@@ -11,7 +11,8 @@ C2NorthGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  5, CITY_2, 2
+	warp_event  4,  7, CITY_2, 5
+	warp_event  5,  7, CITY_2, 5
 
 	def_coord_events
 

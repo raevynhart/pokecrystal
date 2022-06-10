@@ -16,9 +16,11 @@ City2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, C2_EAST_GATE, 1
-	warp_event 10,  5, C2_WEST_GATE, 1
-	warp_event 13,  5, C2_NORTH_GATE, 1
+	warp_event 27, 10, C2_EAST_GATE, 3
+	warp_event 27, 11, C2_EAST_GATE, 4
+	warp_event  4, 10, C2_WEST_GATE, 3
+	warp_event  4, 11, C2_WEST_GATE, 4
+	warp_event 17,  3, C2_NORTH_GATE, 1
 
 	def_coord_events
 

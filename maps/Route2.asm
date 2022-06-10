@@ -11,7 +11,8 @@ Route2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, C2_EAST_GATE, 1
+	warp_event  4, 28, C2_EAST_GATE, 1
+	warp_event  4, 29, C2_EAST_GATE, 2
 
 	def_coord_events
 
