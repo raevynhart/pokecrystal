@@ -13,6 +13,8 @@ C2NorthGate_MapEvents:
 	def_warp_events
 	warp_event  4,  7, CITY_2, 5
 	warp_event  5,  7, CITY_2, 5
+	warp_event  4,  0, SPECIAL_2, 1
+	warp_event  5,  0, SPECIAL_2, 2
 
 	def_coord_events
 

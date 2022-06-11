@@ -51,14 +51,14 @@ ENDM
 	endgroup
 
 	newgroup CITY_3                                               ;  3
-	map_const CITY_3,                                      13,  18 ;  1
+	map_const CITY_3,                                      13, 18 ;  1
 	map_const ROUTE_2,                                     40, 18 ;  2
 	map_const ROUTE_3,                                     30,  9 ;  3
+	map_const ROUTE_4,                                     10, 18 ;  4
 	endgroup
 
 	newgroup CITY_4                                               ;  4
 	map_const CITY_4,                                      16, 10 ;  1
-	map_const ROUTE_4,                                     10, 18 ;  2
 	endgroup
 
 	newgroup CITY_5                                               ;  5
@@ -89,13 +89,13 @@ ENDM
 
 	newgroup CITY_9                                               ;  9
 	map_const CITY_9,                                       9, 10 ;  1
-	map_const ROUTE_15,                                    10, 18 ;  2
 	endgroup
 
 	newgroup CITY_10                                              ; 10
 	map_const CITY_10,                                     13,  7 ;  1
-	map_const ROUTE_16,                                    40,  9 ;  2
-	map_const ROUTE_17,                                    10, 18 ;  3
+	map_const ROUTE_15,                                    10, 18 ;  2
+	map_const ROUTE_16,                                    40,  9 ;  3
+	map_const ROUTE_17,                                    10, 18 ;  4
 	endgroup
 
 	newgroup SPECIAL_1                                            ; 11
