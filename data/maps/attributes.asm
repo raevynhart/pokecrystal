@@ -107,17 +107,16 @@ ENDM
 	connection west, Route6, ROUTE_6, -2
 	connection east, Route5, ROUTE_5, -21
 
-	map_attributes City6, CITY_6, $35, WEST | EAST
-	connection west, Route8, ROUTE_8, 5
-	connection east, Special6, SPECIAL_6, 5
+	map_attributes City6, CITY_6, $35, WEST
+	connection west, Route8, ROUTE_8, -1
 
 	map_attributes City8, CITY_8, $05, NORTH | SOUTH
-	connection north, Route13, ROUTE_13, 5
-	connection south, Route14, ROUTE_14, 5
+	connection north, Route13, ROUTE_13, 0
+	connection south, Route14, ROUTE_14, 1
 
 	map_attributes City10, CITY_10, $71, NORTH | WEST
-	connection north, Route17, ROUTE_17, 0
-	connection west, Route16, ROUTE_16, 9
+	connection north, Route17, ROUTE_17, 2
+	connection west, Route16, ROUTE_16, 0
 
 	map_attributes Route1, ROUTE_1, $0f, WEST
 	connection west, City1, CITY_1, 11
@@ -139,35 +138,35 @@ ENDM
 	connection east, City5, CITY_5, 2
 
 	map_attributes Route6Cave, ROUTE_6_CAVE, $0f, WEST
-	connection west, Route7, ROUTE_7, -5
+	connection west, Route7, ROUTE_7, -19
 
 	map_attributes Route7, ROUTE_7, $0f, WEST | EAST
-	connection west, Route9, ROUTE_9, -5
-	connection east, Route6, ROUTE_6, -9
+	connection west, Route9, ROUTE_9, 0
+	connection east, Route6Cave, ROUTE_6_CAVE, 19
 
 	map_attributes Route8, ROUTE_8, $2c, EAST
-	connection east, City6, CITY_6, 0
+	connection east, City6, CITY_6, 1
 
 	map_attributes Route9, ROUTE_9, $2c, SOUTH | EAST
-	connection south, Route10, ROUTE_10, 20
-	connection east, Route7, ROUTE_7, -9
+	connection south, Route10, ROUTE_10, -32
+	connection east, Route7, ROUTE_7, 0
 
 	map_attributes Route10, ROUTE_10, $2c, NORTH
-	connection north, Route9, ROUTE_9, -20
+	connection north, Route9, ROUTE_9, 32
 
 	map_attributes Route11, ROUTE_11, $0f, NORTH | SOUTH
-	connection north, Route12, ROUTE_12, 0
-	connection south, Route13, ROUTE_13, -9
+	connection north, Route12, ROUTE_12, -1
+	connection south, Route13, ROUTE_13, -1
 
 	map_attributes Route12, ROUTE_12, $43, SOUTH
-	connection south, Route11, ROUTE_11, -20
+	connection south, Route11, ROUTE_11, 1
 
 	map_attributes Route13, ROUTE_13, $43, NORTH | SOUTH
-	connection north, Route11, ROUTE_11, 0
+	connection north, Route11, ROUTE_11, 1
 	connection south, City8, CITY_8, 0
 
 	map_attributes Route14, ROUTE_14, $43, NORTH
-	connection north, City8, CITY_8, 0
+	connection north, City8, CITY_8, -1
 
 	map_attributes Route15, ROUTE_15, $0f, SOUTH
 	connection south, Special9, SPECIAL_9, 0
@@ -177,11 +176,15 @@ ENDM
 	connection east, City10, CITY_10, 0
 
 	map_attributes Route17, ROUTE_17, $43, SOUTH
-	connection south, City10, CITY_10, 0
+	connection south, City10, CITY_10, -2
 
 	map_attributes Special3, SPECIAL_3, $43, SOUTH | WEST
 	connection south, Route4, ROUTE_4, 0
 	connection west, Route3, ROUTE_3, -1
+
+	map_attributes Special9, SPECIAL_9, $43, NORTH | EAST
+	connection north, Route15, ROUTE_15, 0
+	connection east, Route16, ROUTE_16, 0
 
 	map_attributes C1NorthGate, C1_NORTH_GATE, $35, 0
 	map_attributes City2, CITY_2, $35, 0
@@ -201,7 +204,6 @@ ENDM
 	map_attributes Special6, SPECIAL_6, $43, 0
 	map_attributes Special7, SPECIAL_7, $43, 0
 	map_attributes Special8, SPECIAL_8, $43, 0
-	map_attributes Special9, SPECIAL_9, $43, 0
 	map_attributes Special10, SPECIAL_10, $43, 0
 	map_attributes RestArea, REST_AREA, $00, 0
 	map_attributes ShipPlayersCabin, SHIP_PLAYERS_CABIN, $00, 0

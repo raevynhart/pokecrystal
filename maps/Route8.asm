@@ -11,6 +11,8 @@ Route8_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  9, 15, ROUTE_7, 1
+	warp_event 10, 15, ROUTE_7, 1
 
 	def_coord_events
 

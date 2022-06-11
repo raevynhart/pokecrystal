@@ -11,7 +11,7 @@ Route17_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, SPECIAL_10, 1
+	warp_event 10,  1, SPECIAL_10, 1
 
 	def_coord_events
 

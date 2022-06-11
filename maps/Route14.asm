@@ -11,7 +11,7 @@ Route14_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, CITY_9, 1
+	warp_event 54,  3, CITY_9, 1
 
 	def_coord_events
 

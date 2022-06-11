@@ -68,7 +68,7 @@ ENDM
 	endgroup
 
 	newgroup CITY_6                                               ;  6
-	map_const CITY_6,                                       7,  6 ;  1
+	map_const CITY_6,                                      11,  7 ;  1
 	map_const ROUTE_8,                                     10,  9 ;  2
 	map_const C6_EAST_GATE,                                 5,  4 ;  3
 	endgroup
@@ -95,7 +95,7 @@ ENDM
 	newgroup CITY_10                                              ; 10
 	map_const CITY_10,                                     13,  7 ;  1
 	map_const ROUTE_16,                                    40,  9 ;  2
-	map_const ROUTE_17,                                    10,  9 ;  3
+	map_const ROUTE_17,                                    10, 18 ;  3
 	endgroup
 
 	newgroup SPECIAL_1                                            ; 11
