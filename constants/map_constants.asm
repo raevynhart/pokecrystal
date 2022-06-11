@@ -44,37 +44,37 @@ ENDM
 	endgroup
 
 	newgroup CITY_2                                               ;  2
-	map_const CITY_2,                                      16, 11 ;  1
+	map_const CITY_2,                                      17, 12 ;  1
 	map_const C2_NORTH_GATE,                                5,  4 ;  2
 	map_const C2_EAST_GATE,                                 5,  4 ;  3
 	map_const C2_WEST_GATE,                                 5,  4 ;  4
 	endgroup
 
 	newgroup CITY_3                                               ;  3
-	map_const CITY_3,                                      10,  18 ;  1
+	map_const CITY_3,                                      13,  18 ;  1
 	map_const ROUTE_2,                                     40, 18 ;  2
 	map_const ROUTE_3,                                     30,  9 ;  3
 	endgroup
 
 	newgroup CITY_4                                               ;  4
-	map_const CITY_4,                                      14, 10 ;  1
+	map_const CITY_4,                                      16, 10 ;  1
 	map_const ROUTE_4,                                     10, 18 ;  2
 	endgroup
 
 	newgroup CITY_5                                               ;  5
-	map_const CITY_5,                                      12,  7 ;  1
+	map_const CITY_5,                                      14,  8 ;  1
 	map_const ROUTE_5,                                     10, 27 ;  2
 	map_const ROUTE_6,                                     10,  9 ;  3
 	endgroup
 
 	newgroup CITY_6                                               ;  6
-	map_const CITY_6,                                      11,  7 ;  1
+	map_const CITY_6,                                      12,  7 ;  1
 	map_const ROUTE_8,                                     10,  9 ;  2
 	map_const C6_EAST_GATE,                                 5,  4 ;  3
 	endgroup
 
 	newgroup CITY_7                                               ;  7
-	map_const CITY_7,                                      20, 14 ;  1
+	map_const CITY_7,                                      20, 15 ;  1
 	map_const ROUTE_11,                                    30,  9 ;  2
 	map_const ROUTE_12,                                    10,  9 ;  3
 	map_const C7_NORTH_GATE,                                5,  4 ;  4

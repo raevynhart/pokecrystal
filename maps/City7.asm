@@ -16,9 +16,9 @@ City7_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 23, C7_SOUTH_GATE, 3
-	warp_event 18, 23, C7_SOUTH_GATE, 4
-	warp_event 17,  3, C7_NORTH_GATE, 1
+	warp_event 17, 25, C7_SOUTH_GATE, 3
+	warp_event 18, 25, C7_SOUTH_GATE, 4
+	warp_event 17,  5, C7_NORTH_GATE, 1
 
 	def_coord_events
 

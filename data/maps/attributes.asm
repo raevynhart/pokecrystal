@@ -103,100 +103,100 @@ ENDM
 	connection west, Route2, ROUTE_2, 5
 	connection east, Route3, ROUTE_3, 4
 
-	map_attributes City5, CITY_5, $35, WEST | EAST
+	map_attributes City5, CITY_5, $05, WEST | EAST
 	connection west, Route6, ROUTE_6, -2
 	connection east, Route5, ROUTE_5, -21
 
 	map_attributes City6, CITY_6, $35, WEST
 	connection west, Route8, ROUTE_8, -1
 
-	map_attributes City8, CITY_8, $05, NORTH | SOUTH
+	map_attributes City8, CITY_8, $33, NORTH | SOUTH
 	connection north, Route13, ROUTE_13, 0
 	connection south, Route14, ROUTE_14, 1
 
-	map_attributes City10, CITY_10, $71, NORTH | WEST
+	map_attributes City10, CITY_10, $33, NORTH | WEST
 	connection north, Route17, ROUTE_17, 2
 	connection west, Route16, ROUTE_16, 0
 
-	map_attributes Route1, ROUTE_1, $0f, WEST
+	map_attributes Route1, ROUTE_1, $05, WEST
 	connection west, City1, CITY_1, 11
 
-	map_attributes Route2, ROUTE_2, $0f, EAST
+	map_attributes Route2, ROUTE_2, $05, EAST
 	connection east, City3, CITY_3, -5
 
-	map_attributes Route3, ROUTE_3, $2c, WEST | EAST
+	map_attributes Route3, ROUTE_3, $05, WEST | EAST
 	connection west, City3, CITY_3, -4
 	connection east, Special3, SPECIAL_3, 1
 
-	map_attributes Route4, ROUTE_4, $2c, NORTH
+	map_attributes Route4, ROUTE_4, $05, NORTH
 	connection north, Special3, SPECIAL_3, 0
 
-	map_attributes Route5, ROUTE_5, $0f, WEST
+	map_attributes Route5, ROUTE_5, $05, WEST
 	connection west, City5, CITY_5, 21
 
-	map_attributes Route6, ROUTE_6, $0f, EAST
+	map_attributes Route6, ROUTE_6, $05, EAST
 	connection east, City5, CITY_5, 2
 
-	map_attributes Route6Cave, ROUTE_6_CAVE, $0f, WEST
+	map_attributes Route6Cave, ROUTE_6_CAVE, $1D, WEST
 	connection west, Route7, ROUTE_7, -19
 
-	map_attributes Route7, ROUTE_7, $0f, WEST | EAST
-	connection west, Route9, ROUTE_9, 0
+	map_attributes Route7, ROUTE_7, $1D, WEST | EAST
+	connection west, Route9, ROUTE_9, 2
 	connection east, Route6Cave, ROUTE_6_CAVE, 19
 
-	map_attributes Route8, ROUTE_8, $2c, EAST
+	map_attributes Route8, ROUTE_8, $05, EAST
 	connection east, City6, CITY_6, 1
 
-	map_attributes Route9, ROUTE_9, $2c, SOUTH | EAST
+	map_attributes Route9, ROUTE_9, $1D, SOUTH | EAST
 	connection south, Route10, ROUTE_10, -32
-	connection east, Route7, ROUTE_7, 0
+	connection east, Route7, ROUTE_7, -2
 
-	map_attributes Route10, ROUTE_10, $2c, NORTH
+	map_attributes Route10, ROUTE_10, $1D, NORTH
 	connection north, Route9, ROUTE_9, 32
 
-	map_attributes Route11, ROUTE_11, $0f, NORTH | SOUTH
+	map_attributes Route11, ROUTE_11, $0F, NORTH | SOUTH
 	connection north, Route12, ROUTE_12, -1
 	connection south, Route13, ROUTE_13, -1
 
-	map_attributes Route12, ROUTE_12, $43, SOUTH
+	map_attributes Route12, ROUTE_12, $0F, SOUTH
 	connection south, Route11, ROUTE_11, 1
 
-	map_attributes Route13, ROUTE_13, $43, NORTH | SOUTH
+	map_attributes Route13, ROUTE_13, $0F, NORTH | SOUTH
 	connection north, Route11, ROUTE_11, 1
 	connection south, City8, CITY_8, 0
 
-	map_attributes Route14, ROUTE_14, $43, NORTH
+	map_attributes Route14, ROUTE_14, $33, NORTH
 	connection north, City8, CITY_8, -1
 
-	map_attributes Route15, ROUTE_15, $0f, SOUTH
+	map_attributes Route15, ROUTE_15, $13, SOUTH
 	connection south, Special9, SPECIAL_9, 0
 
-	map_attributes Route16, ROUTE_16, $0f, WEST | EAST
+	map_attributes Route16, ROUTE_16, $13, WEST | EAST
 	connection west, Special9, SPECIAL_9, 0
 	connection east, City10, CITY_10, 0
 
-	map_attributes Route17, ROUTE_17, $43, SOUTH
+	map_attributes Route17, ROUTE_17, $13, SOUTH
 	connection south, City10, CITY_10, -2
 
-	map_attributes Special3, SPECIAL_3, $43, SOUTH | WEST
+	map_attributes Special3, SPECIAL_3, $05, SOUTH | WEST
 	connection south, Route4, ROUTE_4, 0
 	connection west, Route3, ROUTE_3, -1
 
-	map_attributes Special9, SPECIAL_9, $43, NORTH | EAST
+	map_attributes Special9, SPECIAL_9, $1D, NORTH | EAST
 	connection north, Route15, ROUTE_15, 0
 	connection east, Route16, ROUTE_16, 0
 
-	map_attributes C1NorthGate, C1_NORTH_GATE, $35, 0
+	map_attributes C1NorthGate, C1_NORTH_GATE, $00, 0
 	map_attributes City2, CITY_2, $35, 0
-	map_attributes C2NorthGate, C2_NORTH_GATE, $35, 0
-	map_attributes C2EastGate, C2_EAST_GATE, $35, 0
-	map_attributes C2WestGate, C2_WEST_GATE, $35, 0
-	map_attributes City4, CITY_4, $05, 0
-	map_attributes C6EastGate, C6_EAST_GATE, $35, 0
-	map_attributes City7, CITY_7, $35, 0
-	map_attributes C7NorthGate, C7_NORTH_GATE, $35, 0
-	map_attributes C7SouthGate, C7_SOUTH_GATE, $35, 0
-	map_attributes City9, CITY_9, $71, 0
+	map_attributes C2NorthGate, C2_NORTH_GATE, $00, 0
+	map_attributes C2EastGate, C2_EAST_GATE, $00, 0
+	map_attributes C2WestGate, C2_WEST_GATE, $00, 0
+	map_attributes City4, CITY_4, $00, 0
+	map_attributes C6EastGate, C6_EAST_GATE, $00, 0
+	map_attributes City7, CITY_7, $05, 0
+	map_attributes C7NorthGate, C7_NORTH_GATE, $00, 0
+	map_attributes C7SouthGate, C7_SOUTH_GATE, $00, 0
+	map_attributes City9, CITY_9, $1D, 0
 	map_attributes Special1, SPECIAL_1, $43, 0
 	map_attributes Special2, SPECIAL_2, $43, 0
 	map_attributes Special4, SPECIAL_4, $43, 0
