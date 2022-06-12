@@ -11,6 +11,7 @@ Route9_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event  7,  5, REST_AREA, 1
 
 	def_coord_events
 

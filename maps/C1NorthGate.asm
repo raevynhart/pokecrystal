@@ -14,7 +14,8 @@ C1NorthGate_MapEvents:
 	def_warp_events
 	warp_event  4,  7, CITY_1, 2
 	warp_event  5,  7, CITY_1, 2
-	warp_event  9,  3, SPECIAL_1, 1
+	warp_event  4,  0, SPECIAL_1, 1
+	warp_event  5,  0, SPECIAL_1, 2
 
 	def_coord_events
 

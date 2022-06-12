@@ -11,8 +11,8 @@ Special1_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, C1_NORTH_GATE, 3
-	warp_event  6,  5, C1_NORTH_GATE, 3
+	warp_event  9, 13, C1_NORTH_GATE, 3
+	warp_event 10, 13, C1_NORTH_GATE, 4
 
 	def_coord_events
 

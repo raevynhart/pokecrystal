@@ -138,6 +138,7 @@ C1NorthGate_Blocks:
 C2NorthGate_Blocks:
 C7NorthGate_Blocks:
 C7SouthGate_Blocks:
+R5SouthGate_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
 
 

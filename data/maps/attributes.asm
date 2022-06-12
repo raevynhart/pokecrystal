@@ -107,7 +107,7 @@ ENDM
 	connection west, Route6, ROUTE_6, -2
 	connection east, Route5, ROUTE_5, -21
 
-	map_attributes City6, CITY_6, $35, WEST
+	map_attributes City6, CITY_6, $05, WEST
 	connection west, Route8, ROUTE_8, -1
 
 	map_attributes City8, CITY_8, $33, NORTH | SOUTH
@@ -196,16 +196,17 @@ ENDM
 	map_attributes City7, CITY_7, $05, 0
 	map_attributes C7NorthGate, C7_NORTH_GATE, $00, 0
 	map_attributes C7SouthGate, C7_SOUTH_GATE, $00, 0
+	map_attributes R5SouthGate, R5_SOUTH_GATE, $00, 0
 	map_attributes City9, CITY_9, $1D, 0
-	map_attributes Special1, SPECIAL_1, $43, 0
-	map_attributes Special2, SPECIAL_2, $43, 0
-	map_attributes Special4, SPECIAL_4, $43, 0
-	map_attributes Special5, SPECIAL_5, $43, 0
+	map_attributes Special1, SPECIAL_1, $05, 0
+	map_attributes Special2, SPECIAL_2, $35, 0
+	map_attributes Special4, SPECIAL_4, $05, 0
+	map_attributes Special5, SPECIAL_5, $1D, 0
 	map_attributes Special6, SPECIAL_6, $43, 0
 	map_attributes Special7, SPECIAL_7, $43, 0
 	map_attributes Special8, SPECIAL_8, $43, 0
 	map_attributes Special10, SPECIAL_10, $43, 0
-	map_attributes RestArea, REST_AREA, $00, 0
+	map_attributes RestArea, REST_AREA, $05, 0
 	map_attributes ShipPlayersCabin, SHIP_PLAYERS_CABIN, $00, 0
 	map_attributes PlayersHouse1F, PLAYERS_HOUSE_1F, $00, 0
 	map_attributes PlayersHouse2F, PLAYERS_HOUSE_2F, $00, 0

@@ -98,6 +98,7 @@ SECTION "Map Scripts 17", ROMX
 
 INCLUDE "maps/Route4.asm"
 INCLUDE "maps/Route5.asm"
+INCLUDE "maps/R5SouthGate.asm"
 INCLUDE "maps/Route6.asm"
 INCLUDE "maps/Route6Cave.asm"
 

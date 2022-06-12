@@ -16,7 +16,8 @@ RestArea_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-
+	warp_event  9, 13, ROUTE_9, 1
+	warp_event 10, 13, ROUTE_9, 1
 
 	def_coord_events
 

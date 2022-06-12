@@ -12,6 +12,7 @@ Route6Cave_MapEvents:
 
 	def_warp_events
 	warp_event 37, 13, ROUTE_6, 1
+	warp_event  5, 13, SPECIAL_5, 1
 
 	def_coord_events
 

@@ -18,6 +18,7 @@ City9_MapEvents:
 	def_warp_events
 	warp_event  5, 15, ROUTE_14, 1
 	warp_event 11, 15, ROUTE_15, 1
+	warp_event 13,  1, SPECIAL_8, 1
 
 	def_coord_events
 
